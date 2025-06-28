@@ -173,6 +173,17 @@ footer {
 
 /* Tablets (hasta 1024px) */
 @media (max-width: 1024px) {
+
+    .menu-toggle {
+        display: none;
+    }
+    
+    .menu-icon {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: var(--texto);
+    }
     html {
         scroll-padding-top: 120px; /* Altura del nav fijo */
     }
@@ -198,6 +209,29 @@ footer {
   
   /* Celulares (hasta 600px) */
   @media (max-width: 600px) {
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        background-color: var(--fondo);
+        border-top: 1px solid var(--texto-suave);
+        padding-top: 10px;
+    }
+
+    .menu-toggle:checked + .menu-icon + .menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    nav a {
+        margin: 10px 0;
+    }
+}
     html {
         scroll-padding-top: 140px; /* Altura del nav fijo */
     }
@@ -246,5 +280,5 @@ footer {
       width: 100%;
       height: auto;
     }
-  }
+  
   
