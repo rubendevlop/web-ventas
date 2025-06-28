@@ -92,3 +92,54 @@
     color: var(--texto-suave);
   }
   
+
+  /* ====== MEDIA QUERIES: RESPONSIVE ====== */
+
+/* Tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+  .galeria {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .proyecto {
+    padding: 20px 10px;
+  }
+}
+
+/* Celulares (hasta 600px) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .proyecto img {
+    width: 100%;
+    height: auto;
+  }
+
+  .proyecto a {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .volver {
+    display: block;
+    margin: 20px auto 0;
+    text-align: center;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+}
