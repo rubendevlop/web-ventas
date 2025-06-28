@@ -173,6 +173,10 @@ footer {
 
 /* Tablets (hasta 1024px) */
 @media (max-width: 1024px) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 40px; /* Altura del nav fijo */
+    }
     .nav-hero {
       flex-direction: column;
       align-items: flex-start;
@@ -195,6 +199,10 @@ footer {
   
   /* Celulares (hasta 600px) */
   @media (max-width: 600px) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 40px; /* Altura del nav fijo */
+    }
     body {
       padding: 10px;
     }
