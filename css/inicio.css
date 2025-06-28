@@ -231,7 +231,7 @@ footer {
     nav a {
         margin: 10px 0;
     }
-}
+
     html {
         scroll-padding-top: 140px; /* Altura del nav fijo */
     }
@@ -281,4 +281,4 @@ footer {
       height: auto;
     }
   
-  
+}
