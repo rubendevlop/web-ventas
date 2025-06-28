@@ -198,9 +198,9 @@ footer {
   
   /* Celulares (hasta 600px) */
   @media (max-width: 600px) {
-    html {
+    /* html {
         scroll-padding-top: 2px; /* Altura del nav fijo */
-    }
+    } */
     body {
       padding: 10px;
     }
