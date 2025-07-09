@@ -102,7 +102,11 @@ h1, h2, h3 {
     display: none;
 }
 
-
+.nav-hero img{
+    margin-left: 20px;
+    width: 200px;
+    height: 40px;
+}
 nav a {
     margin: 0 10px;
     color: var(--texto);
