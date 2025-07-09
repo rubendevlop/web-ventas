@@ -95,7 +95,7 @@
 
   /* ====== MEDIA QUERIES: RESPONSIVE ====== */
 
-/* Tablets (hasta 1024px) */
+
 @media (max-width: 1024px) {
   .galeria {
     grid-template-columns: 1fr;
@@ -107,7 +107,7 @@
   }
 }
 
-/* Celulares (hasta 600px) */
+
 @media (max-width: 600px) {
   body {
     padding: 10px;

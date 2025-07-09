@@ -193,7 +193,7 @@ footer {
 
 /* ====== MEDIA QUERIES: RESPONSIVE ====== */
 
-/* Tablets (hasta 1024px) */
+
 @media (max-width: 1024px) {
 
     .menu-toggle {
@@ -207,7 +207,7 @@ footer {
         color: var(--texto);
     }
     html {
-        scroll-padding-top: 120px; /* Altura del nav fijo */
+        scroll-padding-top: 120px; 
     }
     .nav-hero {
       flex-direction: column;
@@ -229,7 +229,7 @@ footer {
     }
   }
   
-  /* Celulares (hasta 600px) */
+
   @media (max-width: 600px) {
 
     .menu {
@@ -255,7 +255,7 @@ footer {
     }
 
     html {
-        scroll-padding-top: 140px; /* Altura del nav fijo */
+        scroll-padding-top: 140px;
     }
     body {
       padding: 10px;
