@@ -1,98 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESARROLLO WEB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/inicio.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrollo SCL - Servicios Web</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="hero">
-      <div class="nav-hero">
-           <img src="./assets/img/ChatGPT Image 9 jul 2025, 01_18_52.png" alt="logo">
-           <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">&#9776;</label>
-          <nav class="menu">
-              <a href="#1">Inicio</a>
-              <a href="#2">Qué ofrecemos</a>
-              <a href="#3">Quiénes somos</a>
-              <a href="./pages/galeria.html">Galería</a>
-              <a href="#5">Planes</a>
-              <a href="#6">Contacto</a>
-          </nav>
-      </div>
-      <div id="1">
-          <h1>Impulsá tu negocio con una página web profesional</h1>
-          <p>Aumentá tus ventas hasta un 300% con una web pensada para convertir</p>
-          <a href="https://api.whatsapp.com/send/?phone=543815624585&text&type=phone_number&app_absent=0" class="boton-galeria" target="_blank">Quiero mi web ahora</a>
-      </div>
+
+  <header>
+    <div class="logo">Desarrollo SCL</div>
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <nav id="nav">
+        <a href="index.html">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="galeria.html">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      
   </header>
 
-  <section class="beneficios" >
-      <h2>¿Por qué tener una web?</h2>
-      <ul>
-          <li>Más clientes: más del 85% de las personas buscan en Google antes de comprar.</li>
-          <li>Ventas 24/7: incluso cuando dormís, tu web sigue trabajando por vos.</li>
-          <li>Imagen profesional: tu negocio deja de parecer improvisado.</li>
-          <li>Contacto directo: conectá con tus clientes en segundos.</li>
-      </ul>
+  <section class="hero" id="inicio">
+    <h1>Potenciá tu presencia online</h1>
+    <p>Diseñamos y desarrollamos sitios web a medida para tu negocio o emprendimiento.</p>
+    <a href="#contacto" class="cta">Solicitar Cotización</a>
   </section>
 
-  <section id="2">
-      <h2>Qué ofrecemos</h2>
-      <ul>
-          <li>Landing page</li>
-          <li>Tienda online</li>
-          <li>Web institucional</li>
-          <li>Diseño adaptable a celulares y tablets</li>
-      </ul>
+  <section class="servicios" id="servicios">
+    <h2 class="titulo-servicios">Servicios Personalizados</h2>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <h3>Diseño de Sitios Web</h3>
+        <p>Tu página profesional con diseño responsivo, moderna y enfocada en resultados.</p>
+      </div>
+      <div class="servicio">
+        <h3>Mantenimiento Web</h3>
+        <p>Actualizaciones, optimización y mejoras continuas para tu web.</p>
+      </div>
+      <div class="servicio">
+        <h3>Alojamiento Web</h3>
+        <p>Hosting confiable y rápido para que tu sitio esté siempre disponible.</p>
+      </div>
+      <div class="servicio">
+        <h3>Landing Pages</h3>
+        <p>Páginas únicas para campañas publicitarias o productos específicos.</p>
+      </div>
+      <div class="servicio">
+        <h3>Portafolios Profesionales</h3>
+        <p>Mostrá tu trabajo al mundo con estilo e impacto.</p>
+      </div>
+      <div class="servicio">
+        <h3>Tiendas Online</h3>
+        <p>Soluciones completas de e-commerce para vender 24/7.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="3">
-      <h2>Quiénes somos</h2>
-      <p>Somos un equipo de profesionales enfocados en hacer crecer negocios como el tuyo. Diseñamos páginas rápidas, efectivas y modernas que ayudan a emprendedores, comercios y marcas a posicionarse online y vender más.</p>
+  <section class="contacto" id="contacto">
+    <h2>¿Querés una web para tu negocio?</h2>
+    <p>¡Contactanos por WhatsApp!</p>
+    <a class="whatsapp-link" href="https://wa.me/543815624585" target="_blank">📞 +54 381 562-4585 - ¡Escribinos por WhatsApp!</a>
   </section>
 
-  <section class="galeria" id="4">
-    <h2>Galería de trabajos</h2>
-    <a href="./pages/galeria.html" target="_blank" class="boton-galeria">Ir a galería</a>
-</section>
-
-
-  </section>
-
-  <section id="5">
-      <h2>Precios y planes</h2>
-      <ul>
-          <li>Landing Page</li>
-          <li>Web institucional</li>
-          <li>Tienda online</li>
-          <li>Aplicaciones web, mobiles y de escritorio</li>
-      </ul>
-  </section>
-
-  <section class="formulario" id="6">
-      <h2>Hacemos tu web en menos de 7 días</h2>
-      <p>Consultanos sin compromiso</p>
-      <a href="https://api.whatsapp.com/send/?phone=543815624585&text&type=phone_number&app_absent=0" class="boton-galeria" target="_blank">Ir a nuestro WhatsApp</a>
-      
-  </section>
-
-  <section>
-      <h2>Preguntas frecuentes</h2>
-      <ul>
-          <li>¿Qué necesito para empezar? → Solo tu logo y una idea general.</li>
-          <li>¿Cuánto tarda? → Entre 5 y 10 días, dependiendo el plan.</li>
-          <li>¿Incluye dominio? → En algunos planes sí.</li>
-          <li>¿Se adapta a celular? → 100% responsive en todos los casos.</li>
-          <li>¿Puedo pagar en cuotas? → Sí, por MercadoPago.</li>
-      </ul>
-  </section>
-
-  <footer> 
-      <p>© 2025 derechos reservado Lopez Rubén. Todos los derechos reservados.</p>
+  <footer>
+    &copy; 2025 Desarrollo SCL. Todos los derechos reservados.
   </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
