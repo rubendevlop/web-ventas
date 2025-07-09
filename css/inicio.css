@@ -213,6 +213,7 @@ footer {
     html {
         scroll-padding-top: 120px; 
     }
+    
     .nav-hero {
       flex-direction: column;
       align-items: flex-start;
@@ -279,7 +280,7 @@ footer {
     }
   
     .nav-hero {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       padding: 15px 10px;
     }
