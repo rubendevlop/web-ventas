@@ -3,15 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desarrollo SCL – Servicios Detallados</title>
+  <title>RRL AID (Agencia de Innovación Digital) – Servicios Web</title>
   <link rel="stylesheet" href="servicios.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <div class="logo">Desarrollo SCL</div>
-    <nav>
+    <div class="logo">
+      <a href="index.html" class="logo-a">RRL AID</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="mainNav">
       <a href="index.html">Inicio</a>
       <a href="servicios.html" class="active">Servicios</a>
       <a href="galeria.html">Galería</a>
@@ -20,30 +27,28 @@
   </header>
 
   <main class="servicios-page">
-
-    <!-- Introducción general -->
+    <!-- Introducción -->
     <section class="intro">
       <h1>¡Impulsa tu Presencia Online con Desarrollo SCL!</h1>
-      <p>En Desarrollo SCL, te ayudamos a crear y mantener una fuerte presencia digital. Entendemos que cada negocio es único, por eso ofrecemos soluciones a medida para que alcances tus objetivos. Explora nuestros servicios detallados a continuación:</p>
-      <!-- Botón para cambiar moneda -->
-      <button id="toggleCurrency" style="margin-top:20px;padding:10px 20px;border:none;border-radius:6px;background:#0066cc;color:#fff;cursor:pointer;">Mostrar en Pesos ARS</button>
+      <p>En Desarrollo SCL creamos soluciones digitales a tu medida para que alcances tus objetivos.</p>
+      <button id="toggleCurrency" class="cta">Mostrar en Pesos ARS</button>
     </section>
 
     <!-- Diseño de Sitios Web -->
     <section class="service-tier">
       <h1>Diseño de Sitios Web</h1>
-      <p>Creamos sitios web atractivos y funcionales que representan tu marca de la mejor manera posible. Desde una página simple hasta complejas tiendas online, tenemos una solución para ti.</p>
+      <p>Sitios atractivos y funcionales: desde páginas corporativas hasta tiendas online.</p>
       <div class="tiers-grid">
-        <div class="tier card">
+        <div class="card">
           <h2>Básico</h2>
           <p><span class="price" data-usd="300">USD 300</span></p>
           <ul>
-            <li>1–2 páginas estáticas (Inicio, Contacto)</li>
+            <li>1–2 páginas estáticas</li>
             <li>Plantilla pre-diseñada</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Profesional</h2>
           <p><span class="price" data-usd="600">USD 600</span></p>
           <ul>
@@ -52,16 +57,16 @@
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Avanzado</h2>
           <p><span class="price" data-usd="1000">USD 1.000</span></p>
           <ul>
-            <li>+5 páginas + blog integrado</li>
+            <li>+5 páginas + blog</li>
             <li>Animaciones sutiles</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Premium</h2>
           <p><span class="price" data-usd="1500">USD 1.500</span></p>
           <ul>
@@ -76,40 +81,40 @@
     <!-- Mantenimiento Web -->
     <section class="service-tier">
       <h1>Mantenimiento Web</h1>
-      <p>Tu sitio web necesita atención constante para funcionar sin problemas y de forma segura. Con nuestros planes de mantenimiento, nos encargamos de todo para que tú puedas concentrarte en tu negocio.</p>
+      <p>Planes que incluyen actualizaciones, backups y soporte para que tu sitio siempre funcione.</p>
       <div class="tiers-grid">
-        <div class="tier card">
+        <div class="card">
           <h2>Mensual Básico</h2>
-          <p><span class="price" data-usd="30">USD 30</span> / mes</p>
+          <p><span class="price" data-usd="30">USD 30</span>/mes</p>
           <ul>
             <li>Actualizaciones CMS</li>
             <li>Backup semanal</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Mensual Pro</h2>
-          <p><span class="price" data-usd="50">USD 50</span> / mes</p>
+          <p><span class="price" data-usd="50">USD 50</span>/mes</p>
           <ul>
-            <li>Todo de Básico</li>
-            <li>Soporte 24/7 + backup diario</li>
+            <li>Todo Básico +</li>
+            <li>Backup diario + Soporte 24/7</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Trimestral</h2>
-          <p><span class="price" data-usd="135">USD 135</span> / trimestre</p>
+          <p><span class="price" data-usd="135">USD 135</span>/trimestre</p>
           <ul>
-            <li>Descuento 10%</li>
-            <li>Monitorización de uptime</li>
+            <li>10% de descuento</li>
+            <li>Monitorización uptime</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Anual</h2>
-          <p><span class="price" data-usd="510">USD 510</span> / año</p>
+          <p><span class="price" data-usd="510">USD 510</span>/año</p>
           <ul>
-            <li>Descuento 15%</li>
+            <li>15% de descuento</li>
             <li>Consultoría SEO continua</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
@@ -120,41 +125,41 @@
     <!-- Asesoramiento de Marketing -->
     <section class="service-tier">
       <h1>Asesoramiento de Marketing</h1>
-      <p>Te ayudamos a crear estrategias efectivas para que tu negocio llegue a más clientes y crezca. Desde el análisis inicial hasta campañas integrales, estamos contigo en cada paso.</p>
+      <p>Estrategias integrales: desde el análisis hasta campañas en redes y SEM.</p>
       <div class="tiers-grid">
-        <div class="tier card">
-          <h2>Plan Básico</h2>
+        <div class="card">
+          <h2>Básico</h2>
           <p><span class="price" data-usd="100">USD 100</span></p>
           <ul>
-            <li>Consultoría inicial de 2 horas</li>
-            <li>Análisis de mercado y competencia</li>
+            <li>Consultoría 2h</li>
+            <li>Análisis de competencia</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
-          <h2>Plan Growth</h2>
+        <div class="card">
+          <h2>Growth</h2>
           <p><span class="price" data-usd="200">USD 200</span></p>
           <ul>
-            <li>Todo de Plan Básico</li>
-            <li>Estrategia en redes sociales</li>
+            <li>Todo Básico +</li>
+            <li>Redes sociales</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
-          <h2>Plan Profesional</h2>
+        <div class="card">
+          <h2>Profesional</h2>
           <p><span class="price" data-usd="400">USD 400</span></p>
           <ul>
-            <li>Gestión de campañas SEM y display</li>
+            <li>Campañas SEM/Display</li>
             <li>Reportes de rendimiento</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
-          <h2>Plan Ejecutivo</h2>
+        <div class="card">
+          <h2>Ejecutivo</h2>
           <p><span class="price" data-usd="600">USD 600</span></p>
           <ul>
             <li>Estrategia 360°</li>
-            <li>Optimización de procesos administrativos</li>
+            <li>Optimización de procesos</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
@@ -164,19 +169,19 @@
     <!-- Landing Pages -->
     <section class="service-tier">
       <h1>Landing Pages</h1>
-      <p>Las Landing Pages son páginas diseñadas para lograr un objetivo específico: que tus visitantes realicen una acción (formulario, descarga o compra). Perfectas para campañas de marketing.</p>
+      <p>Páginas diseñadas para convertir: captura leads, descargas o ventas.</p>
       <div class="tiers-grid">
-        <div class="tier card">
+        <div class="card">
           <h2>Básica</h2>
           <p><span class="price" data-usd="200">USD 200</span></p>
           <ul>
-            <li>1 sección + formulario simple</li>
-            <li>Ideal para captar leads</li>
+            <li>1 sección + formulario</li>
+            <li>Ideal para leads</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
-          <h2>Con Animaciones</h2>
+        <div class="card">
+          <h2>Animada</h2>
           <p><span class="price" data-usd="350">USD 350</span></p>
           <ul>
             <li>Scroll animado</li>
@@ -184,20 +189,20 @@
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Con CRM</h2>
           <p><span class="price" data-usd="500">USD 500</span></p>
           <ul>
-            <li>Integración con MailChimp</li>
-            <li>Lead tracking automatizado</li>
+            <li>Integración MailChimp</li>
+            <li>Lead tracking</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Premium</h2>
           <p><span class="price" data-usd="700">USD 700</span></p>
           <ul>
-            <li>Optimización SEO</li>
+            <li>SEO profesional</li>
             <li>Pruebas A/B</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
@@ -208,18 +213,18 @@
     <!-- Portafolios Profesionales -->
     <section class="service-tier">
       <h1>Portafolios Profesionales</h1>
-      <p>Muestra tu trabajo de la mejor manera con un portafolio online. Ideal para artistas, diseñadores y profesionales que quieran destacar sus proyectos.</p>
+      <p>Destaca tu trabajo con un portafolio online minimalista y dinámico.</p>
       <div class="tiers-grid">
-        <div class="tier card">
+        <div class="card">
           <h2>Starter</h2>
           <p><span class="price" data-usd="250">USD 250</span></p>
           <ul>
             <li>Hasta 3 proyectos</li>
-            <li>Diseño limpio y minimalista</li>
+            <li>Diseño limpio</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Pro</h2>
           <p><span class="price" data-usd="450">USD 450</span></p>
           <ul>
@@ -228,7 +233,7 @@
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Deluxe</h2>
           <p><span class="price" data-usd="700">USD 700</span></p>
           <ul>
@@ -237,11 +242,11 @@
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Ultimate</h2>
           <p><span class="price" data-usd="1000">USD 1.000</span></p>
           <ul>
-            <li>e-commerce básico</li>
+            <li>eCommerce básico</li>
             <li>Consultoría UX</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
@@ -252,27 +257,27 @@
     <!-- Tiendas Online -->
     <section class="service-tier">
       <h1>Tiendas Online</h1>
-      <p>Lleva tu negocio al siguiente nivel vendiendo tus productos y servicios directamente en internet. Creamos tiendas seguras y fáciles de usar.</p>
+      <p>Vende tus productos 24/7 con una tienda segura y fácil de usar.</p>
       <div class="tiers-grid">
-        <div class="tier card">
+        <div class="card">
           <h2>Starter</h2>
           <p><span class="price" data-usd="800">USD 800</span></p>
           <ul>
-            <li>Catálogo ≤20 productos</li>
-            <li>Pasarela de pago básica</li>
+            <li>Catálogo ≤ 20 productos</li>
+            <li>Pago básico</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Professional</h2>
           <p><span class="price" data-usd="1200">USD 1.200</span></p>
           <ul>
-            <li>Catálogo ≤100 productos</li>
+            <li>Catálogo ≤ 100 productos</li>
             <li>Cupones y descuentos</li>
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Business</h2>
           <p><span class="price" data-usd="1800">USD 1.800</span></p>
           <ul>
@@ -281,7 +286,7 @@
           </ul>
           <a href="https://wa.me/543815624585" class="btn-contact">Contactar</a>
         </div>
-        <div class="tier card">
+        <div class="card">
           <h2>Enterprise</h2>
           <p><span class="price" data-usd="2500">USD 2.500</span></p>
           <ul>
@@ -292,7 +297,6 @@
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
@@ -300,11 +304,12 @@
   </footer>
 
   <script>
+    // Toggle moneda
     const rate = 1340;
     let showingUSD = true;
     document.getElementById('toggleCurrency').addEventListener('click', () => {
       document.querySelectorAll('.price').forEach(span => {
-        const usd = parseFloat(span.getAttribute('data-usd'));
+        const usd = parseFloat(span.dataset.usd);
         span.textContent = showingUSD
           ? '$ ' + (usd * rate).toLocaleString('es-AR')
           : 'USD ' + usd.toLocaleString('en-US');
@@ -313,6 +318,15 @@
         ? 'Mostrar en USD'
         : 'Mostrar en Pesos ARS';
       showingUSD = !showingUSD;
+    });
+
+    // Menú hamburguesa
+    const btnToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    btnToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      const expanded = nav.classList.contains('active');
+      btnToggle.setAttribute('aria-label', expanded ? 'Cerrar menú' : 'Abrir menú');
     });
   </script>
 

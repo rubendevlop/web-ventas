@@ -1,9 +1,12 @@
+/* === RESET Y BASE (mobile‑first) === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
@@ -11,10 +14,21 @@ body {
   color: #1a1a1a;
 }
 
-html {
-  scroll-behavior: smooth;
+/* === KEYFRAMES === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* === HEADER Y NAVEGACIÓN === */
 header {
   display: flex;
   justify-content: space-between;
@@ -26,14 +40,33 @@ header {
   width: 100%;
   top: 0;
   z-index: 999;
+  animation: fadeInDown 0.8s ease both;
 }
-
-.logo {
+.logo-a {
   font-size: 1.4rem;
   font-weight: 700;
   color: #0066cc;
+  text-decoration: none;
+  animation: fadeIn 0.8s ease 0.2s both;
+}
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #1a1a1a;
+  animation: fadeIn 0.8s ease 0.4s both;
+}
+.menu-toggle .bar {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
+/* MENÚ OCULTO / VISIBLE */
 nav {
   display: none;
   flex-direction: column;
@@ -46,51 +79,41 @@ nav {
   padding: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
-
 nav.active {
   display: flex;
+  animation: fadeIn 0.6s ease both;
 }
-
 nav a {
   color: #1a1a1a;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
+  animation: fadeInDown 0.5s ease both;
 }
-
 nav a:hover {
   color: #0066cc;
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #1a1a1a;
-}
-
+/* === HERO === */
 .hero {
   text-align: center;
   padding: 120px 20px 60px;
   background: linear-gradient(135deg, #eaf4ff, #ffffff);
   transition: background 0.4s ease;
+  animation: fadeIn 1s ease both;
 }
-
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: #003366;
-  animation: fadeInDown 1s ease;
+  animation: fadeInDown 1s ease both;
 }
-
 .hero p {
   color: #333;
   font-size: 1.1rem;
   margin-bottom: 20px;
-  animation: fadeIn 1.4s ease;
+  animation: fadeIn 1s ease 0.3s both;
 }
-
 .cta {
   background-color: #0066cc;
   color: #fff;
@@ -99,56 +122,56 @@ nav a:hover {
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
-  transition: background-color 0.3s ease;
-  animation: fadeInUp 1.6s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: fadeInUp 1s ease 0.6s both;
 }
-
 .cta:hover {
   background-color: #004a99;
 }
 
+/* === SECCIÓN SERVICIOS === */
 .servicios {
   padding: 60px 20px;
   background-color: #ffffff;
+  animation: fadeInUp 0.8s ease both;
 }
-
 .titulo-servicios {
   text-align: center;
   font-size: 2rem;
   color: #003366;
   margin-bottom: 40px;
-  animation: fadeIn 0.8s ease;
+  animation: fadeInDown 0.8s ease both;
 }
-
 .servicios-grid {
   display: grid;
   gap: 24px;
+  animation: fadeIn 0.8s ease 0.4s both;
 }
-
 .servicio {
   background: #f1f7ff;
   border-left: 5px solid #0066cc;
   padding: 20px;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease both;
 }
-
 .servicio:hover {
   transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
 .servicio h3 {
   color: #004a99;
   margin-bottom: 10px;
   font-size: 1.2rem;
+  animation: fadeInDown 0.6s ease both;
 }
 
-/* 🔵 Botón Conocer más... */
+/* BOTÓN “CONOCER MÁS” */
 .servicios-footer {
   text-align: center;
   margin-top: 40px;
+  animation: fadeInUp 0.8s ease both;
 }
-
 .servicios-footer .cta {
   background-color: #0066cc;
   color: #fff;
@@ -158,32 +181,32 @@ nav a:hover {
   font-size: 1rem;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  animation: fadeInUp 1s ease;
   display: inline-block;
+  animation: fadeInUp 1s ease 0.2s both;
 }
-
 .servicios-footer .cta:hover {
   background-color: #004a99;
   transform: translateY(-2px);
 }
 
+/* === CONTACTO === */
 .contacto {
   padding: 60px 20px;
   text-align: center;
   background: #eaf4ff;
+  animation: fadeIn 0.8s ease both;
 }
-
 .contacto h2 {
   color: #003366;
   font-size: 2rem;
   margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease both;
 }
-
 .contacto p {
   margin-bottom: 10px;
   font-size: 1.1rem;
+  animation: fadeIn 0.8s ease 0.3s both;
 }
-
 .whatsapp-link {
   display: inline-block;
   margin-top: 10px;
@@ -191,38 +214,61 @@ nav a:hover {
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
-
 .whatsapp-link:hover {
   color: #128C7E;
 }
 
+/* === FOOTER === */
 footer {
   background: #f1f1f1;
   color: #333;
   padding: 16px;
   text-align: center;
   font-size: 0.9rem;
+  animation: fadeInUp 0.8s ease both;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* === GALERÍA === */
+.galeria {
+  padding: 100px 20px 60px;
+  background-color: #ffffff;
+  text-align: center;
+  animation: fadeIn 0.8s ease both;
+}
+.galeria h1 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 10px;
+  animation: fadeInDown 0.8s ease both;
+}
+.galeria-descripcion {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 30px;
+  animation: fadeIn 0.8s ease 0.3s both;
+}
+.galeria-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  animation: fadeInUp 0.8s ease both;
+}
+.galeria-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+.galeria-grid img:hover {
+  transform: scale(1.03);
 }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (min-width: 768px) {
+/* === RESPONSIVE === */
+@media (min-width: 700px) {
   nav {
     display: flex !important;
     flex-direction: row;
@@ -232,74 +278,18 @@ footer {
     box-shadow: none;
     gap: 20px;
   }
-
   .menu-toggle {
     display: none;
   }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
   .servicios-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (min-width: 1024px) {
   .servicios-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-/* === GALERÍA === */
-.galeria {
-  padding: 100px 20px 60px;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.galeria h1 {
-  font-size: 2rem;
-  color: #003366;
-  margin-bottom: 10px;
-  animation: fadeInDown 1s ease;
-}
-
-.galeria-descripcion {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 30px;
-  animation: fadeIn 1.3s ease;
-}
-
-.galeria-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-  animation: fadeInUp 1.5s ease;
-}
-
-.galeria-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-}
-
-.galeria-grid img:hover {
-  transform: scale(1.03);
-}
-
-@media (min-width: 600px) {
   .galeria-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .galeria-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

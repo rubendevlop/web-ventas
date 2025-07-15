@@ -1,150 +1,133 @@
-/* Mobile-first: 1 columna, luego escalado */
+/* === RESET Y BASE (mobile‑first) === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #f9fbfd;
+  color: #1a1a1a;
+}
+
+/* === HEADER Y MENÚ === */
+header {
+  position: sticky; top: 0; width: 100%; z-index: 999;
+  display: flex; justify-content: space-between; align-items: center;
+  background: #fff; padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.logo-a {
+  font-size: 1.4rem; font-weight: 700; color: #0066cc;
+  text-decoration: none;
+}
+.menu-toggle {
+  display: flex; flex-direction: column; justify-content: space-between;
+  width: 28px; height: 20px; background: none; border: none;
+  cursor: pointer; padding: 0;
+}
+.menu-toggle .bar {
+  height: 3px; width: 100%; background: #1a1a1a;
+  border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+}
+nav {
+  display: none; flex-direction: column; gap: 10px;
+  position: absolute; top: 64px; left: 0; right: 0;
+  background: #fff; padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+nav.active { display: flex; }
+nav a {
+  color: #1a1a1a; text-decoration: none; font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a.active { color: #0066cc; }
+
+/* === INTRO / HERO === */
+.intro {
+  text-align: center; padding: 120px 20px 60px;
+  background: linear-gradient(135deg, #eaf4ff, #fff);
+}
+.intro h1 {
+  font-size: 2.5rem; color: #003366; margin-bottom: 10px;
+}
+.intro p {
+  font-size: 1.1rem; color: #333; margin-bottom: 20px;
+}
+.cta {
+  display: inline-block; background: #0066cc; color: #fff;
+  padding: 12px 24px; border-radius: 8px; font-weight: 600;
+  text-decoration: none; transition: background 0.3s, transform 0.2s;
+}
+.cta:hover { background: #004a99; transform: translateY(-2px); }
+
+/* === SECCIONES DE SERVICIO === */
+.service-tier {
+  padding: 60px 20px; background: #fff;
+}
+.service-tier h1 {
+  text-align: center; font-size: 2rem; color: #003366;
+  margin-bottom: 16px;
+}
+.service-tier p {
+  text-align: center; font-size: 1rem; color: #555;
+  max-width: 700px; margin: 0 auto 24px;
+}
+.tiers-grid {
+  display: grid; gap: 20px;
+}
+.card {
+  background: #f1f7ff; border-left: 5px solid #0066cc;
+  padding: 20px; border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.card h2 {
+  font-size: 1.2rem; color: #004a99; margin-bottom: 8px;
+}
+.card p {
+  font-size: 1rem; font-weight: 600; margin-bottom: 12px;
+}
+.card ul {
+  list-style: disc inside; margin-bottom: 16px;
+  color: #333; font-size: 0.95rem;
+}
+.btn-contact {
+  display: inline-block; background: #0066cc; color: #fff;
+  padding: 10px 20px; border-radius: 6px; font-weight: 600;
+  text-decoration: none; transition: background 0.3s, transform 0.2s;
+}
+.btn-contact:hover {
+  background: #004a99; transform: translateY(-2px);
+}
+
+/* === FOOTER === */
+footer {
+  background: #f1f1f1; color: #333; padding: 16px;
+  text-align: center; font-size: 0.9rem;
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeInDown { from {opacity:0;transform:translateY(-20px);} to {opacity:1;transform:translateY(0);} }
+@keyframes fadeInUp { from {opacity:0;transform:translateY(20px);} to {opacity:1;transform:translateY(0);} }
+
+/* === RESPONSIVE (Mobile‑First) === */
+@media (min-width: 700px) {
+  .menu-toggle { display: none; }
+  nav {
+    display: flex !important; position: static; flex-direction: row;
+    background: none; padding: 0; box-shadow: none; gap: 20px;
   }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #f9fbfd;
-    color: #1a1a1a;
-    line-height: 1.6;
-  }
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    padding: 16px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  header .logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #0066cc;
-  }
-  header nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: 600;
-    color: #1a1a1a;
-    transition: color 0.3s ease;
-  }
-  header nav a.active,
-  header nav a:hover {
-    color: #0066cc;
-  }
-  
-  .servicios-page {
-    padding: 100px 20px;
-  }
-  
-  /* Introducción general */
-  .intro {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 60px auto;
-  }
-  .intro h1 {
-    font-size: 2.5rem;
-    color: #003366;
-    margin-bottom: 16px;
-  }
-  .intro p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.5;
-  }
-  
-  /* Cada sección de servicio */
-  .service-tier {
-    margin-bottom: 60px;
-  }
-  .service-tier h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #003366;
-    margin-bottom: 16px;
-  }
-  .service-tier > p {
-    text-align: center;
-    font-size: 1rem;
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 24px auto;
-    line-height: 1.5;
-  }
-  
-  /* Grid de los 4 planes */
-  .tiers-grid {
-    display: grid;
-    gap: 20px;
-  }
-  
-  /* Tarjeta individual */
-  .card {
-    background: #f1f7ff;
-    border-left: 5px solid #0066cc;
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  }
-  .card h2 {
-    font-size: 1.2rem;
-    color: #004a99;
-    margin-bottom: 8px;
-  }
-  .card p {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  .card ul {
-    list-style: disc inside;
-    margin-bottom: 16px;
-    color: #333;
-    font-size: 0.95rem;
-  }
-  
-  .btn-contact {
-    display: inline-block;
-    background: #0066cc;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
-  }
-  .btn-contact:hover {
-    background: #004a99;
-    transform: translateY(-2px);
-  }
-  
-  /* Breakpoints */
-  @media (min-width: 600px) {
-    .tiers-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 1024px) {
-    .tiers-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #f1f1f1;
-    color: #333;
-    font-size: 0.9rem;
-  }
-  
+  nav a { padding: 0; line-height: 1; }
+  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .tiers-grid { grid-template-columns: repeat(4, 1fr); }
+}
