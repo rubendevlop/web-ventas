@@ -12,39 +12,73 @@ body {
   color: #1a1a1a;
 }
 
+/* === ANIMACIONES (keyframes) === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
 /* === HEADER Y MENÚ === */
 header {
   position: sticky; top: 0; width: 100%; z-index: 999;
   display: flex; justify-content: space-between; align-items: center;
   background: #fff; padding: 16px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  animation: fadeInDown 0.8s ease both;
 }
 .logo-a {
   font-size: 1.4rem; font-weight: 700; color: #0066cc;
   text-decoration: none;
+  animation: fadeIn 0.8s ease 0.2s both;
 }
 .menu-toggle {
   display: flex; flex-direction: column; justify-content: space-between;
   width: 28px; height: 20px; background: none; border: none;
   cursor: pointer; padding: 0;
+  animation: fadeIn 0.8s ease 0.4s both;
 }
 .menu-toggle .bar {
   height: 3px; width: 100%; background: #1a1a1a;
   border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
 }
+
+/* Menú oculto por defecto */
 nav {
   display: none; flex-direction: column; gap: 10px;
   position: absolute; top: 64px; left: 0; right: 0;
   background: #fff; padding: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
-nav.active { display: flex; }
+
+/* Cuando se activa */
+nav.active {
+  display: flex;
+  animation: fadeIn 0.6s ease both;
+}
 nav a {
   color: #1a1a1a; text-decoration: none; font-weight: 600;
-  transition: color 0.3s;
+  transition: color 0.3s; animation: slideInLeft 0.5s ease both;
 }
+nav a:nth-child(1) { animation-delay: 0.2s; }
+nav a:nth-child(2) { animation-delay: 0.3s; }
+nav a:nth-child(3) { animation-delay: 0.4s; }
+nav a:nth-child(4) { animation-delay: 0.5s; }
 nav a:hover,
-nav a.active { color: #0066cc; }
+nav a.active {
+  color: #0066cc;
+}
 
 /* === INTRO / HERO === */
 .intro {
@@ -53,55 +87,85 @@ nav a.active { color: #0066cc; }
 }
 .intro h1 {
   font-size: 2.5rem; color: #003366; margin-bottom: 10px;
+  animation: fadeInDown 1s ease both;
 }
 .intro p {
   font-size: 1.1rem; color: #333; margin-bottom: 20px;
+  animation: fadeIn 1s ease 0.3s both;
 }
-.cta {
+.intro .cta {
   display: inline-block; background: #0066cc; color: #fff;
   padding: 12px 24px; border-radius: 8px; font-weight: 600;
   text-decoration: none; transition: background 0.3s, transform 0.2s;
+  animation: fadeInUp 1s ease 0.6s both;
 }
-.cta:hover { background: #004a99; transform: translateY(-2px); }
+.intro .cta:hover {
+  background: #004a99; transform: translateY(-2px);
+}
 
 /* === SECCIONES DE SERVICIO === */
 .service-tier {
   padding: 60px 20px; background: #fff;
+  animation: fadeInUp 0.8s ease both;
 }
+.service-tier:nth-of-type(odd)  { animation-delay: 0.2s; }
+.service-tier:nth-of-type(even) { animation-delay: 0.4s; }
+
 .service-tier h1 {
   text-align: center; font-size: 2rem; color: #003366;
-  margin-bottom: 16px;
+  margin-bottom: 16px; animation: fadeInDown 0.8s ease both;
 }
 .service-tier p {
   text-align: center; font-size: 1rem; color: #555;
   max-width: 700px; margin: 0 auto 24px;
+  animation: fadeIn 0.8s ease 0.3s both;
 }
+
+/* Grid de tarjetas */
 .tiers-grid {
   display: grid; gap: 20px;
 }
+@media (min-width: 600px) {
+  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .tiers-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Tarjetas */
 .card {
   background: #f1f7ff; border-left: 5px solid #0066cc;
   padding: 20px; border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 0.8s ease both;
 }
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .card h2 {
   font-size: 1.2rem; color: #004a99; margin-bottom: 8px;
+  animation: fadeInDown 0.6s ease both;
 }
 .card p {
   font-size: 1rem; font-weight: 600; margin-bottom: 12px;
+  animation: fadeIn 0.6s ease 0.2s both;
 }
 .card ul {
   list-style: disc inside; margin-bottom: 16px;
   color: #333; font-size: 0.95rem;
+  animation: fadeIn 0.6s ease 0.4s both;
 }
 .btn-contact {
   display: inline-block; background: #0066cc; color: #fff;
   padding: 10px 20px; border-radius: 6px; font-weight: 600;
   text-decoration: none; transition: background 0.3s, transform 0.2s;
+  animation: fadeInUp 0.6s ease 0.6s both;
 }
 .btn-contact:hover {
   background: #004a99; transform: translateY(-2px);
@@ -111,23 +175,5 @@ nav a.active { color: #0066cc; }
 footer {
   background: #f1f1f1; color: #333; padding: 16px;
   text-align: center; font-size: 0.9rem;
-}
-
-/* === ANIMACIONES === */
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-@keyframes fadeInDown { from {opacity:0;transform:translateY(-20px);} to {opacity:1;transform:translateY(0);} }
-@keyframes fadeInUp { from {opacity:0;transform:translateY(20px);} to {opacity:1;transform:translateY(0);} }
-
-/* === RESPONSIVE (Mobile‑First) === */
-@media (min-width: 700px) {
-  .menu-toggle { display: none; }
-  nav {
-    display: flex !important; position: static; flex-direction: row;
-    background: none; padding: 0; box-shadow: none; gap: 20px;
-  }
-  nav a { padding: 0; line-height: 1; }
-  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .tiers-grid { grid-template-columns: repeat(4, 1fr); }
+  animation: fadeInUp 0.8s ease 0.2s both;
 }
