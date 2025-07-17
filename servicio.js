@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // observamos todos los elementos con .reveal **y** todas las .card
     document
-      .querySelectorAll('.reveal, .card')
+      .querySelectorAll('.reveal')
       .forEach(el => observer.observe(el));
   });
   
