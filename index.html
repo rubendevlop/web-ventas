@@ -3,79 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RRL AID (Agencia de innovación Digital) - Servicios Web</title>
+  <title>RRL NEXT (Agencia de Innovación Digital) – Servicios Web</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <div class="logo"><a href="index.html" class="logo-a">RRL NEXT</a></div>
-    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+  <header class="reveal">
+    <div class="logo">
+      <a href="index.html" class="logo-a">RRL NEXT</a>
+    </div>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <nav id="nav">
-      <a href="index.html">Inicio</a>
+      <a href="#inicio">Inicio</a>
       <a href="servicios.html">Servicios</a>
       <a href="galeria.html">Galería</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section class="hero" id="inicio">
+  <section class="hero reveal" id="inicio">
     <h1>Potenciá tu presencia online</h1>
     <p>Diseñamos y desarrollamos sitios web a medida para tu negocio o emprendimiento.</p>
-    
   </section>
 
-  <section class="servicios" id="servicios">
-    <h2 class="titulo-servicios">Servicios Personalizados</h2>
+  <section class="servicios reveal" id="servicios">
+    <h2 class="titulo-servicios reveal">Servicios Personalizados</h2>
     <div class="servicios-grid">
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Diseño de Sitios Web</h3>
         <p>Tu página profesional con diseño responsivo, moderna y enfocada en resultados.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Mantenimiento Web</h3>
         <p>Actualizaciones, optimización y mejoras continuas para tu web.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Asesoramiento de Marketing</h3>
-        <p>Ofrecemos acompañarte en todo el proceso: desde el diagnóstico inicial hasta la ejecución de campañas, con estrategias diseñadas para atraer más clientes y hacer crecer tu negocio.</p>
+        <p>Ofrecemos acompañarte en todo el proceso: desde el diagnóstico inicial hasta la ejecución de campañas.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Landing Pages</h3>
         <p>Páginas únicas para campañas publicitarias o productos específicos.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Portafolios Profesionales</h3>
         <p>Mostrá tu trabajo al mundo con estilo e impacto.</p>
       </div>
-      <div class="servicio">
+      <div class="servicio reveal">
         <h3>Tiendas Online</h3>
-        <p>Soluciones completas de e-commerce para vender 24/7.</p>
+        <p>Soluciones completas de e‑commerce para vender 24/7.</p>
       </div>
     </div>
-    <!-- Botón Conocer más -->
-    <div class="servicios-footer">
-      <a class="cta" href="servicios.html">Conocer más...</a>
+    <div class="servicios-footer reveal">
+      <a class="cta" href="#servicios">Conocer más...</a>
     </div>
   </section>
 
-  <section class="contacto" id="contacto">
+  <section class="contacto reveal" id="contacto">
     <h2>¿Querés una web para tu negocio?</h2>
     <p>¡Contactanos por WhatsApp!</p>
-    <a class="whatsapp-link" href="https://wa.me/543815624585" target="_blank">📞 +54 381 562-4585 - ¡Escribinos por WhatsApp!</a>
+    <a class="whatsapp-link" href="https://wa.me/543815624585" target="_blank">
+      📞 +54 381 562-4585 – Escribinos
+    </a>
   </section>
 
-  <footer>
-    &copy; 2025 Desarrollo SCL. Todos los derechos reservados.
+  <footer class="reveal">
+    &copy; 2025 RRL NEXT. Todos los derechos reservados.
   </footer>
 
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav');
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-  </script>
+  <!-- Aquí enlazamos nuestro JavaScript externo -->
+  <script src="index.js"></script>
 </body>
 </html>

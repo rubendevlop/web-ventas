@@ -14,81 +14,74 @@ body {
   color: #1a1a1a;
 }
 
-/* === KEYFRAMES === */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* === SCROLL‑REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out,
+              transform 0.6s ease-out;
 }
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
+.reveal.visible {
+  opacity: 1;
+  transform: none;
 }
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+
+/* === MENÚ HAMBURGUESA === */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+.menu-toggle span {
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* === HEADER Y NAVEGACIÓN === */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffffff;
-  padding: 16px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
-  animation: fadeInDown 0.8s ease both;
+  position: fixed; top: 0; width: 100%; z-index: 999;
+  display: flex; justify-content: space-between; align-items: center;
+  background: #fff; padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .logo-a {
   font-size: 1.4rem;
   font-weight: 700;
   color: #0066cc;
   text-decoration: none;
-  animation: fadeIn 0.8s ease 0.2s both;
 }
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #1a1a1a;
-  animation: fadeIn 0.8s ease 0.4s both;
-}
-.menu-toggle .bar {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #1a1a1a;
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-/* MENÚ OCULTO / VISIBLE */
 nav {
   display: none;
-  flex-direction: column;
-  gap: 10px;
-  background-color: #ffffff;
-  position: absolute;
-  top: 64px;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  flex-direction: column; gap: 10px;
+  position: absolute; top: 64px; left: 0; right: 0;
+  background: #fff; padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 nav.active {
   display: flex;
-  animation: fadeIn 0.6s ease both;
 }
 nav a {
   color: #1a1a1a;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
-  animation: fadeInDown 0.5s ease both;
+  transition: color 0.3s;
 }
 nav a:hover {
   color: #0066cc;
@@ -98,54 +91,33 @@ nav a:hover {
 .hero {
   text-align: center;
   padding: 120px 20px 60px;
-  background: linear-gradient(135deg, #eaf4ff, #ffffff);
-  transition: background 0.4s ease;
-  animation: fadeIn 1s ease both;
+  background: linear-gradient(135deg, #eaf4ff, #fff);
 }
 .hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
   color: #003366;
-  animation: fadeInDown 1s ease both;
+  margin-bottom: 10px;
 }
 .hero p {
-  color: #333;
   font-size: 1.1rem;
+  color: #333;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease 0.3s both;
-}
-.cta {
-  background-color: #0066cc;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  animation: fadeInUp 1s ease 0.6s both;
-}
-.cta:hover {
-  background-color: #004a99;
 }
 
 /* === SECCIÓN SERVICIOS === */
 .servicios {
   padding: 60px 20px;
-  background-color: #ffffff;
-  animation: fadeInUp 0.8s ease both;
+  background: #fff;
 }
 .titulo-servicios {
   text-align: center;
   font-size: 2rem;
   color: #003366;
   margin-bottom: 40px;
-  animation: fadeInDown 0.8s ease both;
 }
 .servicios-grid {
   display: grid;
   gap: 24px;
-  animation: fadeIn 0.8s ease 0.4s both;
 }
 .servicio {
   background: #f1f7ff;
@@ -153,7 +125,6 @@ nav a:hover {
   padding: 20px;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease both;
 }
 .servicio:hover {
   transform: translateY(-4px);
@@ -161,31 +132,25 @@ nav a:hover {
 }
 .servicio h3 {
   color: #004a99;
-  margin-bottom: 10px;
   font-size: 1.2rem;
-  animation: fadeInDown 0.6s ease both;
+  margin-bottom: 10px;
 }
-
-/* BOTÓN “CONOCER MÁS” */
 .servicios-footer {
   text-align: center;
   margin-top: 40px;
-  animation: fadeInUp 0.8s ease both;
 }
 .servicios-footer .cta {
-  background-color: #0066cc;
+  display: inline-block;
+  background: #0066cc;
   color: #fff;
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 1rem;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-  animation: fadeInUp 1s ease 0.2s both;
+  transition: background 0.3s, transform 0.2s;
 }
 .servicios-footer .cta:hover {
-  background-color: #004a99;
+  background: #004a99;
   transform: translateY(-2px);
 }
 
@@ -194,27 +159,21 @@ nav a:hover {
   padding: 60px 20px;
   text-align: center;
   background: #eaf4ff;
-  animation: fadeIn 0.8s ease both;
 }
 .contacto h2 {
-  color: #003366;
   font-size: 2rem;
+  color: #003366;
   margin-bottom: 20px;
-  animation: fadeInDown 0.8s ease both;
 }
 .contacto p {
-  margin-bottom: 10px;
   font-size: 1.1rem;
-  animation: fadeIn 0.8s ease 0.3s both;
+  margin-bottom: 10px;
 }
 .whatsapp-link {
-  display: inline-block;
-  margin-top: 10px;
   color: #25D366;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.3s ease;
-  animation: fadeInUp 0.8s ease 0.6s both;
+  transition: color 0.3s;
 }
 .whatsapp-link:hover {
   color: #128C7E;
@@ -227,59 +186,21 @@ footer {
   padding: 16px;
   text-align: center;
   font-size: 0.9rem;
-  animation: fadeInUp 0.8s ease both;
 }
 
-/* === GALERÍA === */
-.galeria {
-  padding: 100px 20px 60px;
-  background-color: #ffffff;
-  text-align: center;
-  animation: fadeIn 0.8s ease both;
-}
-.galeria h1 {
-  font-size: 2rem;
-  color: #003366;
-  margin-bottom: 10px;
-  animation: fadeInDown 0.8s ease both;
-}
-.galeria-descripcion {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 30px;
-  animation: fadeIn 0.8s ease 0.3s both;
-}
-.galeria-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-  animation: fadeInUp 0.8s ease both;
-}
-.galeria-grid img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-  animation: fadeInUp 0.8s ease 0.5s both;
-}
-.galeria-grid img:hover {
-  transform: scale(1.03);
-}
-
-/* === RESPONSIVE === */
-@media (min-width: 700px) {
+/* === RESPONSIVE (mobile‑first) === */
+@media (min-width: 600px) {
+  .menu-toggle {
+    display: none;
+  }
   nav {
     display: flex !important;
-    flex-direction: row;
     position: static;
+    flex-direction: row;
     background: none;
     padding: 0;
     box-shadow: none;
     gap: 20px;
-  }
-  .menu-toggle {
-    display: none;
   }
   .servicios-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -288,8 +209,5 @@ footer {
 @media (min-width: 1024px) {
   .servicios-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-  .galeria-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
