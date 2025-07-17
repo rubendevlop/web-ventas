@@ -1,3 +1,5 @@
+// servicio.js
+
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Toggle de moneda ARS/USD
     const rate = 1340;
@@ -35,31 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', e => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
         if (nav) nav.classList.remove('active');
         if (btnToggle) btnToggle.classList.remove('active');
       });
     });
   
-  // … (tu código de toggle moneda, menú y smooth‑scroll)
-
-// 4. Scroll‑reveal continuo con IntersectionObserver
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      // si aparece en pantalla, añadimos .visible; si sale, la quitamos
-      entry.target.classList.toggle('visible', entry.isIntersecting);
+    // 4. Scroll‑reveal continuo con IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // si entra en viewport añadimos .visible; si sale, la quitamos
+        entry.target.classList.toggle('visible', entry.isIntersecting);
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
   
-  // observa TODO lo que tenga clase .reveal **o** .card
-  document
-    .querySelectorAll('.reveal, .card')
-    .forEach(el => observer.observe(el));
-  
-  
-    // observamos todos los elementos que tengan .reveal
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // observamos todos los elementos con .reveal **y** todas las .card
+    document
+      .querySelectorAll('.reveal, .card')
+      .forEach(el => observer.observe(el));
   });
   
