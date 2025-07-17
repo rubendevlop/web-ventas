@@ -41,19 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   
-    // 4. Scroll‑reveal continuo con IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // cuando entra en viewport, añadimos; al salir, quitamos
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        } else {
-          entry.target.classList.remove('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
+  // … (tu código de toggle moneda, menú y smooth‑scroll)
+
+// 4. Scroll‑reveal continuo con IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // si aparece en pantalla, añadimos .visible; si sale, la quitamos
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
+  }, {
+    threshold: 0.1
+  });
+  
+  // observa TODO lo que tenga clase .reveal **o** .card
+  document
+    .querySelectorAll('.reveal, .card')
+    .forEach(el => observer.observe(el));
+  
   
     // observamos todos los elementos que tengan .reveal
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
