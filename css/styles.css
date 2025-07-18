@@ -1,0 +1,213 @@
+/* === RESET Y BASE (mobile‑first) === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #f9fbfd;
+  color: #1a1a1a;
+}
+
+/* === SCROLL‑REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out,
+              transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* === MENÚ HAMBURGUESA === */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+.menu-toggle span {
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* === HEADER Y NAVEGACIÓN === */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 999;
+  display: flex; justify-content: space-between; align-items: center;
+  background: #fff; padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.logo-a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0066cc;
+  text-decoration: none;
+}
+nav {
+  display: none;
+  flex-direction: column; gap: 10px;
+  position: absolute; top: 64px; left: 0; right: 0;
+  background: #fff; padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+nav.active {
+  display: flex;
+}
+nav a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #0066cc;
+}
+
+/* === HERO === */
+.hero {
+  text-align: center;
+  padding: 120px 20px 60px;
+  background: linear-gradient(135deg, #eaf4ff, #fff);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: #003366;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* === SECCIÓN SERVICIOS === */
+.servicios {
+  padding: 60px 20px;
+  background: #fff;
+}
+.titulo-servicios {
+  text-align: center;
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 40px;
+}
+.servicios-grid {
+  display: grid;
+  gap: 24px;
+}
+.servicio {
+  background: #f1f7ff;
+  border-left: 5px solid #0066cc;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servicio:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.servicio h3 {
+  color: #004a99;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.servicios-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+.servicios-footer .cta {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.servicios-footer .cta:hover {
+  background: #004a99;
+  transform: translateY(-2px);
+}
+
+/* === CONTACTO === */
+.contacto {
+  padding: 60px 20px;
+  text-align: center;
+  background: #eaf4ff;
+}
+.contacto h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+}
+.contacto p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.whatsapp-link {
+  color: #25D366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.whatsapp-link:hover {
+  color: #128C7E;
+}
+
+/* === FOOTER === */
+footer {
+  background: #f1f1f1;
+  color: #333;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* === RESPONSIVE (mobile‑first) === */
+@media (min-width: 600px) {
+  .menu-toggle {
+    display: none;
+  }
+  nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    gap: 20px;
+  }
+  .servicios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .servicios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

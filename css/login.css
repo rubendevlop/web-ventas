@@ -1,0 +1,178 @@
+/* === RESET Y BASE (mobile‑first) === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9fbfd;
+    color: #1a1a1a;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  
+  /* === HEADER Y MENÚ === */
+  header {
+    position: sticky;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    z-index: 1000;
+  }
+  .logo-a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #1a1a1a;
+  }
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: #fff;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  }
+  nav.active {
+    display: flex;
+  }
+  nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  nav a:hover,
+  nav a.active {
+    color: #0066cc;
+  }
+  
+  /* === CONTENEDOR DE AUTENTICACIÓN === */
+  #auth-container {
+    max-width: 360px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+  }
+  .auth-form {
+    background: #ffffff;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    animation: fadeIn 0.6s ease both;
+  }
+  .auth-form h2 {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .auth-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  .auth-form input:focus {
+    outline: none;
+    border-color: #0066cc;
+  }
+  .auth-form button {
+    width: 100%;
+    padding: 12px;
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .auth-form button:hover {
+    background: #004a99;
+    transform: translateY(-2px);
+  }
+  
+  /* === MENSAJES DE USUARIO AUTENTICADO === */
+  #app-container {
+    max-width: 360px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+    text-align: center;
+    animation: fadeIn 0.6s ease both;
+  }
+  #app-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  #app-container button {
+    padding: 12px 24px;
+    background: #cc0000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  #app-container button:hover {
+    background: #990000;
+  }
+  
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #f1f1f1;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  /* === ANIMACIONES KEYFRAMES === */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+  }
+  
+  /* === RESPONSIVE (a partir de 600px) === */
+  @media (min-width: 600px) {
+    nav {
+      display: flex !important;
+      position: static;
+      flex-direction: row;
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      gap: 20px;
+    }
+    .menu-toggle {
+      display: none;
+    }
+    #auth-container,
+    #app-container {
+      margin-top: 120px;
+    }
+  }
+  
