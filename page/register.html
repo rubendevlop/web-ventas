@@ -7,22 +7,27 @@
   <link rel="stylesheet" href="/css/login.css"/>
 </head>
 <body>
-  <header>
+
+  <header class="header">
     <a href="index.html" class="logo-a">RRL NEXT</a>
   </header>
 
-  <main id="auth-container">
-    <section class="auth-form">
-      <h1>Regístrate con Google</h1>
-      <button id="google-register" class="btn-google">
-        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
-        Continuar con Google
-      </button>
-    </section>
+  <main class="auth-container">
+    <h1 class="auth-title">Crea tu cuenta</h1>
+
+    <a href="#" id="google-register" class="btn-google">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+           alt="Google" />
+      Registro con Google
+    </a>
+
+    <p class="auth-footer">
+      ¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a>
+    </p>
   </main>
 
-  <footer>
-    &copy; 2025 Desarrollo SCL.
+  <footer class="footer">
+    &copy; 2025 Desarrollo SCL
   </footer>
 
   <script type="module" src="/scripts/firebaseConfig.js"></script>
