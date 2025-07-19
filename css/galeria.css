@@ -1,69 +1,177 @@
 /* === RESET Y BASE (mobile‑first) === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f9fbfd;
-    color: #1a1a1a;
-    line-height: 1.6;
-  }
-  
-  /* === HEADER Y MENÚ === */
-  header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    z-index: 1000;
-  }
-  .logo-a {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #0066cc;
-    text-decoration: none;
-  }
-  .menu-toggle {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #1a1a1a;
-  }
-  nav {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    padding: 16px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  }
-  nav.active {
-    display: flex;
-  }
-  nav a {
-    color: #1a1a1a;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
-  nav a:hover {
-    color: #0066cc;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: #f9fbfd;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* === HEADER Y NAVEGACIÓN === */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;                   /* espaciado uniforme */
+  padding: 16px 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 999;
+}
+
+.logo-a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+/* Ahora es el botón de menú el que empuja todo lo que viene después */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;         /* push al extremo derecho */
+}
+.menu-toggle span {
+  height: 4px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* El nav desaparece hasta que se active */
+nav {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 64px; left: 0; right: 0;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+nav.active {
+  display: flex;
+}
+nav a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover,
+nav a.active {
+  color: #0066cc;
+}
+
+/* === BOTONES DE LOGIN / REGISTER === */
+.auth-buttons {
+  display: flex;
+  gap: 8px;                  /* menos gap en móvil */
+  margin-left: 0;            /* ya no empujamos aquí */
+  align-items: center;
+}
+.auth-buttons .cta {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* === AVATAR + DROPDOWN === */
+#user-info {
+  display: none;
+  position: relative;        /* para posicionar el menú */
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;          /* separación respecto al menú */
+}
+#user-photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* menú desplegable */
+.user-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: none;
+  min-width: 160px;
+  z-index: 1000;
+}
+.user-menu.open {
+  display: block;
+}
+.user-menu li + li {
+  margin-top: 4px;
+}
+.user-menu a,
+.user-menu .logout-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.user-menu a:hover,
+.user-menu .logout-btn:hover {
+  background: #f5f5f5;
+}
+
+/* === BOTÓN CTA GLOBAL === */
+.cta {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.cta:hover {
+  background: #004a99;
+  transform: translateY(-2px);
+}
   
   /* === GALERÍA === */
   .galeria {
