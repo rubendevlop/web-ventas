@@ -18,16 +18,10 @@ const nav         = document.getElementById('nav');
 //
 onUserChanged(user => {
   if (user) {
-    // ocultar login/register
     authButtons.style.display = 'none';
-
-    // cargar avatar
     userPhoto.src = user.photoURL || '/images/avatar-default.png';
-
-    // mostrar avatar + dropdown container
     userInfo.style.display = 'flex';
   } else {
-    // mostrar login/register
     userInfo.style.display    = 'none';
     authButtons.style.display = 'flex';
   }
@@ -39,7 +33,6 @@ onUserChanged(user => {
 btnLogout.addEventListener('click', async () => {
   try {
     await logout();
-    // onUserChanged se encargará de reconfigurar el header
   } catch (err) {
     console.error('Error al cerrar sesión:', err);
   }
@@ -52,16 +45,10 @@ userPhoto.addEventListener('click', e => {
   e.stopPropagation();
   userMenu.classList.toggle('open');
 });
-
-// cerrar dropdown al hacer click fuera
 document.addEventListener('click', () => {
   userMenu.classList.remove('open');
 });
-
-// evitar que clicks dentro del menú lo cierren
-userMenu.addEventListener('click', e => {
-  e.stopPropagation();
-});
+userMenu.addEventListener('click', e => e.stopPropagation());
 
 //
 // 4. Menú hamburguesa
@@ -91,16 +78,33 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
 //
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('visible');
-    }
+    entry.target.classList.toggle('visible', entry.isIntersecting);
   });
-}, {
-  threshold: 0.1
-});
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
 });
+
+//
+// 7. Mover auth-buttons dentro del nav en móvil (<600px) y fuera en desktop/tablet (>=600px)
+//
+function placeAuthButtons() {
+  const header = document.querySelector('header');
+  if (window.innerWidth < 600) {
+    if (!nav.contains(authButtons)) {
+      nav.appendChild(authButtons);
+    }
+  } else {
+    if (!header.contains(authButtons)) {
+      header.insertBefore(authButtons, userInfo);
+    }
+    // cerrar menú al volver a desktop
+    nav.classList.remove('active');
+    menuBtn.classList.remove('active');
+  }
+}
+
+// Ejecutar al cargar y al redimensionar
+placeAuthButtons();
+window.addEventListener('resize', placeAuthButtons);

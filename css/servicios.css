@@ -258,6 +258,7 @@ nav a.active {
 .tiers-grid {
   display: grid;
   gap: 20px;
+  list-style: none;
 }
 
 /* 11. TARJETAS */
