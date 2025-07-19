@@ -12,29 +12,42 @@ body {
   line-height: 1.6;
   background-color: #f9fbfd;
   color: #1a1a1a;
+  min-height: 100vh;
 }
 
-.auth-buttons {
+/* === BOTÓN CTA GLOBAL === */
+.cta {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.cta:hover {
+  background: #004a99;
+  transform: translateY(-2px);
+}
+
+/* === HEADER Y NAVEGACIÓN === */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
   display: flex;
-  gap: 12px;
-  margin-left: auto; /* empuja los botones a la derecha */
   align-items: center;
+  padding: 16px 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 999;
 }
-
-
-/* === SCROLL‑REVEAL === */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out,
-              transform 0.6s ease-out;
+.logo-a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0066cc;
+  text-decoration: none;
 }
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-
-/* === MENÚ HAMBURGUESA === */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -44,7 +57,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  margin-left: 16px;
 }
 .menu-toggle span {
   height: 4px;
@@ -62,24 +75,16 @@ body {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* === HEADER Y NAVEGACIÓN === */
-header {
-  position: fixed; top: 0; width: 100%; z-index: 999;
-  display: flex; justify-content: space-between; align-items: center;
-  background: #fff; padding: 16px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-.logo-a {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #0066cc;
-  text-decoration: none;
-}
+/* Empuja el nav al extremo derecho */
 nav {
+  margin-left: auto;
   display: none;
-  flex-direction: column; gap: 10px;
-  position: absolute; top: 64px; left: 0; right: 0;
-  background: #fff; padding: 16px;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 64px; left: 0; right: 0;
+  background: #fff;
+  padding: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 nav.active {
@@ -91,8 +96,33 @@ nav a {
   font-weight: 600;
   transition: color 0.3s;
 }
-nav a:hover {
+nav a:hover,
+nav a.active {
   color: #0066cc;
+}
+
+/* Botones de autenticación junto al nav */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+  margin-left: 20px;
+  align-items: center;
+}
+.auth-buttons .cta {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* === SCROLL‑REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out,
+              transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* === HERO === */
@@ -147,20 +177,6 @@ nav a:hover {
   text-align: center;
   margin-top: 40px;
 }
-.servicios-footer .cta {
-  display: inline-block;
-  background: #0066cc;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
-}
-.servicios-footer .cta:hover {
-  background: #004a99;
-  transform: translateY(-2px);
-}
 
 /* === CONTACTO === */
 .contacto {
@@ -196,7 +212,7 @@ footer {
   font-size: 0.9rem;
 }
 
-/* === RESPONSIVE (mobile‑first) === */
+/* === RESPONSIVE (>=600px) === */
 @media (min-width: 600px) {
   .menu-toggle {
     display: none;

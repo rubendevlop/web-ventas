@@ -2,7 +2,9 @@
 import { signInWithGoogle, onUserChanged } from './authService.js';
 import { createUserProfile }               from './dataService.js';
 
-const btn = document.getElementById('google-register');
+const btn         = document.getElementById('google-register');
+const params      = new URLSearchParams(window.location.search);
+const redirectTo  = params.get('redirect') || '/index.html';
 
 btn.addEventListener('click', async () => {
   try {
@@ -14,7 +16,9 @@ btn.addEventListener('click', async () => {
   }
 });
 
-// Si ya hay sesión, redirige a dashboard.html
+// Cuando detecte sesión, vamos a la página original
 onUserChanged(user => {
-  if (user) location.href = 'dashboard.html';
+  if (user) {
+    window.location.href = redirectTo;
+  }
 });

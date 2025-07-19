@@ -1,5 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Menú hamburguesa
+// index.js
+import { onUserChanged, logout } from './authService.js';
+
+const authButtons = document.getElementById('auth-buttons');
+const userInfo    = document.getElementById('user-info');
+const userEmailEl = document.getElementById('user-email');
+const btnLogout   = document.getElementById('logout-btn');
+
+onUserChanged(user => {
+  if (user) {
+    // Usuario conectado: muestro saludo y logout
+    authButtons.style.display = 'none';
+    userEmailEl.textContent   = user.email;
+    userInfo.style.display    = 'flex';
+  } else {
+    // Nadie conectado: muestro login/register
+    userInfo.style.display    = 'none';
+    authButtons.style.display = 'flex';
+  }
+});
+
+// Cerrar sesión
+btnLogout.addEventListener('click', async () => {
+  try {
+    await logout();
+    // onUserChanged redibujará el header
+  } catch (err) {
+    console.error('Error al cerrar sesión:', err);
+  }
+});
+
+  
+  // 1. Menú hamburguesa
     const btn = document.getElementById('menu-toggle');
     const nav = document.getElementById('nav');
     btn.addEventListener('click', () => {
@@ -33,5 +64,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => {
       observer.observe(el);
     });
-  });
+  
   

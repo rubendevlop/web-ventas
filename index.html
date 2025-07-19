@@ -25,10 +25,17 @@
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <div class="auth-buttons">
-      <a href="./page/login.html"     class="cta">Iniciar sesión</a>
-      <a href="./page/register.html"  class="cta">Registrarse</a>
-    </div>
+   <!-- CONTENEDOR DE AUTENTICACIÓN/DESAUTENTICACIÓN -->
+   <div class="auth-buttons" id="auth-buttons">
+    <a href="./page/login.html"    class="cta">Iniciar sesión</a>
+    <a href="./page/register.html" class="cta">Registrarse</a>
+  </div>
+
+  <!-- SALUDO Y BOTÓN DE LOGOUT (oculto por defecto) -->
+  <div id="user-info" style="display:none; align-items:center; gap:8px;">
+    <span id="user-email" style="font-weight:600;"></span>
+    <button id="logout-btn" class="cta">Cerrar sesión</button>
+  </div>
   </header>
 
   <section class="hero reveal" id="inicio">
@@ -82,6 +89,9 @@
   </footer>
 
   <!-- Aquí enlazamos nuestro JavaScript externo -->
-  <script src="./scripts/index.js"></script>
+<script type="module" src="/scripts/firebaseConfig.js"></script>
+<script type="module" src="/scripts/authService.js"></script>
+<script type="module" src="/scripts/index.js"></script>
+
 </body>
 </html>
