@@ -13,5 +13,5 @@ btn.addEventListener('click', async () => {
 
 // Si ya hay sesión, redirige a dashboard.html
 onUserChanged(user => {
-  if (user) location.href = 'dashboard.html';
+  if (user) location.href = '/index.html';
 });
