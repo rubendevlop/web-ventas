@@ -1,178 +1,411 @@
-/* === RESET Y BASE (mobile‑first) === */
+/* servicios.css */
+
+/* 1. RESET Y BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --header-height: 64px;
+  --color-primary: #0066cc;
+  --color-primary-dark: #004a99;
+  --color-bg: #f9fbfd;
+  --color-card: #f1f7ff;
+  --color-text: #1a1a1a; /* Asegúrate de que este color no sea el mismo que el fondo del header */
+}
 body {
   font-family: 'Poppins', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin-top: var(--header-height);
   line-height: 1.6;
-  background-color: #f9fbfd;
-  color: #1a1a1a;
+  min-height: 100vh;
 }
 
-/* === KEYFRAMES PARA ANIMACIONES === */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0);} }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px);}  to { opacity:1; transform: translateY(0);} }
-@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px);} to { opacity:1; transform: translateX(0);} }
-
-/* === SCROLL‑REVEAL BASE === */
-.reveal,
-.card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out,
-              transform 0.6s ease-out;
+/* 2. BOTONES CTA GLOBAL */
+.cta {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 66px; /* Ajustado para un botón más redondeado */
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.cta:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
 }
 
-.reveal.visible,
-.card.visible {
-  opacity: 1;
-  transform: none;
+/* 3. HEADER */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: #fff; /* Asegúrate de que este fondo blanco sea el que se aplica */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  gap: 15px; /* <--- AÑADIDO: Espacio entre los elementos directos del header */
+}
+.logo-a {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
-
-/* === MENÚ HAMBURGUESA === */
+/* 4. MENÚ HAMBURGUESA (mobile) - CORRECCIÓN AQUÍ */
 .menu-toggle {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  background: none;
+  width: 30px;
+  height: 22px;
+  background: none; /* <--- MANTENIDO: Asegura que no tenga fondo */
+  background-color: transparent; /* <--- AÑADIDO: Elimina posibles fondos predeterminados de navegador */
   border: none;
   cursor: pointer;
-  z-index: 1000;
+  margin-left: auto; /* <--- MANTENIDO: Empuja el menú y los botones de auth a la derecha */
+  outline: none; /* <--- AÑADIDO: Elimina el contorno azul de enfoque en algunos navegadores */
+  -webkit-tap-highlight-color: transparent; /* <--- AÑADIDO: Para móviles */
 }
-.menu-toggle .bar {
-  height: 3px;
-  width: 100%;
-  background: #1a1a1a;
+.menu-toggle span {
+  height: 4px;
+  background: var(--color-text); /* <--- MANTENIDO: Barras oscuras para contraste */
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.menu-toggle.active .bar:nth-child(1) {
+.menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
-.menu-toggle.active .bar:nth-child(2) {
+.menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
-.menu-toggle.active .bar:nth-child(3) {
+.menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* === HEADER Y NAVEGACIÓN === */
-header {
-  position: fixed; top: 0; width: 100%; z-index: 999;
-  display: flex; justify-content: space-between; align-items: center;
-  background: #fff; padding: 16px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  animation: fadeInDown 0.8s ease both;
-}
-.logo-a {
-  font-size: 1.4rem; font-weight: 700; color: #0066cc;
-  text-decoration: none;
-  animation: fadeIn 0.8s ease 0.2s both;
-}
+/* 5. NAVEGACIÓN (Por defecto, oculta en móvil con animación de despliegue) */
 nav {
-  display: none; flex-direction: column; gap: 10px;
-  position: absolute; top: 64px; left: 0; right: 0;
-  background: #fff; padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: var(--header-height); /* Usa la variable para consistencia */
+  left: 0; right: 0;
+  background: #fff;
+  padding: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  z-index: 999; /* Un poco menos que el header, pero sobre el contenido */
 }
 nav.active {
   display: flex;
-  animation: fadeIn 0.6s ease both;
 }
 nav a {
-  color: #1a1a1a; text-decoration: none; font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s;
-  animation: slideInLeft 0.5s ease both;
 }
 nav a:hover,
 nav a.active {
   color: #0066cc;
 }
 
-/* === INTRO / HERO === */
+/* === BOTONES DE LOGIN / REGISTER === */
+.auth-buttons {
+  display: flex;
+  gap: 10px; /* <--- AJUSTADO: Un poco más de espacio entre los botones */
+  /* margin-left: 0; REMOVED: menu-toggle.margin-left: auto ya maneja el empuje a la derecha */
+  align-items: center;
+}
+.auth-buttons .cta {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* === AVATAR + DROPDOWN === */
+#user-info {
+  display: none;
+  position: relative;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px; /* <--- AJUSTADO: Más espacio si user-info aparece */
+}
+#user-photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* menú desplegable */
+.user-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: none;
+  min-width: 160px;
+  z-index: 1000;
+}
+.user-menu.open {
+  display: block;
+}
+.user-menu li + li {
+  margin-top: 4px;
+}
+.user-menu a,
+.user-menu .logout-btn {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.user-menu a:hover,
+.user-menu .logout-btn:hover {
+  background: #f5f5f5;
+}
+
+/* === BOTÓN CTA GLOBAL (Duplicado? Eliminar si no se usa aparte del .cta general) === */
+/* Este bloque es una duplicación del .cta inicial, puedes eliminarlo si no hay una razón específica para tenerlo aquí. */
+/*
+.cta {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.cta:hover {
+  background: #004a99;
+  transform: translateY(-2px);
+}
+*/
+
+/* 8. SCROLL‑REVEAL */
+.reveal {
+  /* Estas propiedades se eliminaron para que los elementos sean visibles por defecto.
+     La clase 'visible' se añade por JS para aplicar una animación si se desea. */
+  /* opacity: 0; */
+  /* transform: translateY(20px); */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* 9. HERO / INTRO */
 .intro {
   text-align: center;
   padding: 120px 20px 60px;
   background: linear-gradient(135deg, #eaf4ff, #fff);
 }
-.intro h1 { font-size: 2.5rem; color: #003366; margin-bottom: 10px; animation: fadeInDown 1s ease both; }
-.intro p  { font-size: 1.1rem; color: #333;       margin-bottom: 20px; animation: fadeIn 1s ease 0.3s both; }
-.cta      {
-  display: inline-block; background: #0066cc; color: #fff;
-  padding: 12px 24px; border-radius: 8px; font-weight: 600;
-  text-decoration: none; transition: background 0.3s, transform 0.2s;
-  animation: fadeInUp 1s ease 0.6s both;
+.intro h1 {
+  font-size: 2.5rem;
+  color: #003366;
+  margin-bottom: 10px;
 }
-.cta:hover { background: #004a99; transform: translateY(-2px); }
+.intro p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
 
-/* === SECCIÓN DE SERVICIOS === */
+/* 10. SECCIONES DE SERVICIO */
 .service-tier {
-  padding: 60px 20px; background: #fff;
-  animation: fadeInUp 0.8s ease both;
+  padding: 60px 20px;
+  background: #fff;
 }
-.service-tier h1 {
-  text-align: center; font-size: 2rem; color: #003366;
-  margin-bottom: 16px; animation: fadeInDown 0.8s ease both;
+.service-tier h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 16px;
 }
 .service-tier p {
-  text-align: center; font-size: 1rem; color: #555;
-  max-width: 700px; margin: 0 auto 24px;
-  animation: fadeIn 0.8s ease 0.3s both;
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 24px;
 }
 .tiers-grid {
-  display: grid; gap: 20px;
-}
-@media (min-width: 600px) {
-  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .tiers-grid { grid-template-columns: repeat(4, 1fr); }
+  display: grid;
+  gap: 20px;
 }
 
-/* Tarjetas */
+/* 11. TARJETAS */
 .card {
-  background: #f1f7ff; border-left: 5px solid #0066cc;
-  padding: 20px; border-radius: 8px;
+  background: var(--color-card);
+  border-left: 5px solid var(--color-primary);
+  padding: 20px;
+  border-radius: 8px;
   transition: transform 0.3s, box-shadow 0.3s;
-  animation: fadeInUp 0.8s ease both;
+  /* Estas propiedades se eliminaron para que las tarjetas sean visibles por defecto. */
+  /* opacity: 0; */
+  /* transform: translateY(20px); */
 }
-.card h2 { font-size: 1.2rem; color: #004a99; margin-bottom: 8px; animation: fadeInDown 0.6s both; }
-.card p  { font-size: 1rem;   font-weight: 600; margin-bottom: 12px; animation: fadeIn 0.6s 0.2s both; }
-.card ul { list-style: disc inside; margin-bottom: 16px; animation: fadeIn 0.6s 0.4s both; }
+
+/* Cuando JavaScript añade la clase 'visible' a la tarjeta, se anima */
+.card.visible {
+  opacity: 1;
+  transform: none;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.card h2,
+.card h3 { /* Unificado: h2 y h3 en .card */
+  font-size: 1.2rem;
+  color: #004a99;
+  margin-bottom: 8px;
+  animation: fadeInDown 0.6s both;
+}
+.card p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  animation: fadeIn 0.6s 0.2s both;
+}
+.card ul {
+  list-style: disc inside;
+  margin-bottom: 16px;
+  animation: fadeIn 0.6s 0.4s both;
+}
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .btn-contact {
-  display: inline-block; background: #0066cc; color: #fff;
-  padding: 10px 20px; border-radius: 6px; font-weight: 600;
-  text-decoration: none; transition: background 0.3s, transform 0.2s;
-  animation: fadeInUp 0.6s 0.6s both;
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
 }
-.btn-contact:hover { background: #004a99; transform: translateY(-2px); }
+.btn-contact:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
 
-/* === CONTACTO === */
+/* 12. CONTACTO */
 .contacto {
-  padding: 60px 20px; text-align: center; background: #eaf4ff;
+  padding: 60px 20px;
+  text-align: center;
+  background: #eaf4ff;
 }
-.contacto h2 { font-size: 2rem; color: #003366; margin-bottom: 20px; animation: fadeInDown 0.8s both; }
-.contacto p  { font-size: 1.1rem; margin-bottom: 10px; animation: fadeIn 0.8s 0.3s both; }
+.contacto h2 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 20px;
+}
+.contacto p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
 .whatsapp-link {
-  color: #25D366; font-weight: 600; text-decoration: none;
-  transition: color 0.3s; animation: fadeInUp 0.8s 0.6s both;
+  color: #25D366;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
 }
-.whatsapp-link:hover { color: #128C7E; }
+.whatsapp-link:hover {
+  color: #128C7E;
+}
 
-/* === FOOTER === */
+/* 13. FOOTER */
 footer {
-  background: #f1f1f1; color: #333; padding: 16px;
-  text-align: center; font-size: 0.9rem;
-  animation: fadeInUp 0.8s 0.2s both;
+  background: #f1f1f1;
+  color: #333;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* 14. ANIMACIONES (@keyframes) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* 15. RESPONSIVE MEDIA QUERIES (CLAVE PARA EL MENÚ HAMBURGUESA) */
+@media (min-width: 600px) {
+  /* En pantallas más grandes (desktop), oculta el botón de hamburguesa */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* En pantallas más grandes, el menú de navegación siempre es visible */
+  nav {
+    display: flex !important; /* Usamos !important para asegurar que sobreescribe 'display: none;' */
+    position: static; /* No es absoluto, se integra en el flujo del documento */
+    flex-direction: row; /* Los enlaces se colocan en fila */
+    background: none; /* Sin fondo */
+    padding: 0; /* Sin padding */
+    box-shadow: none; /* Sin sombra */
+    gap: 20px;
+    margin-left: auto; /* Empuja el menú a la derecha del logo */
+    max-height: none; /* Sin límite de altura para desktop */
+    opacity: 1; /* Siempre visible */
+    overflow: visible; /* Contenido visible */
+    z-index: auto; /* Restablecer z-index */
+    transition: none; /* Desactivar transiciones de max-height para desktop */
+  }
+
+  /* Asegura que los botones de autenticación y el info de usuario estén a la derecha del menú */
+  .auth-buttons,
+  #user-info {
+    margin-left: 20px; /* Separación después del menú principal */
+  }
+
+  /* Grid de tarjetas para escritorio */
+  .tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .tiers-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
