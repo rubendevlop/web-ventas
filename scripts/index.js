@@ -1,33 +1,40 @@
-// index.js
 import { onUserChanged, logout } from './authService.js';
 
 const authButtons = document.getElementById('auth-buttons');
 const userInfo    = document.getElementById('user-info');
-const userEmailEl = document.getElementById('user-email');
+const userPhoto   = document.getElementById('user-photo');
 const btnLogout   = document.getElementById('logout-btn');
 
 onUserChanged(user => {
   if (user) {
-    // Usuario conectado: muestro saludo y logout
+    // Oculto los botones de login/register
     authButtons.style.display = 'none';
-    userEmailEl.textContent   = user.email;
-    userInfo.style.display    = 'flex';
+
+    // Pongo la foto de perfil
+    if (user.photoURL) {
+      userPhoto.src = user.photoURL;
+    } else {
+      // fallback a un icono genérico si no hay foto
+      userPhoto.src = '/images/avatar-default.png';
+    }
+
+    // Muestro el contenedor de usuario
+    userInfo.style.display = 'flex';
   } else {
-    // Nadie conectado: muestro login/register
+    // Vuelvo a mostrar login/register
     userInfo.style.display    = 'none';
     authButtons.style.display = 'flex';
   }
 });
 
-// Cerrar sesión
 btnLogout.addEventListener('click', async () => {
   try {
     await logout();
-    // onUserChanged redibujará el header
   } catch (err) {
     console.error('Error al cerrar sesión:', err);
   }
 });
+
 
   
   // 1. Menú hamburguesa
