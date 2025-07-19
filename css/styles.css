@@ -15,54 +15,28 @@ body {
   min-height: 100vh;
 }
 
-/* === AVATAR DE USUARIO (header) === */
-#user-photo {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-}
-#user-info {
-  display: none;
-  position: relative; /* para posicionar el dropdown */
-  align-items: center;
-  gap: 8px;
-}
-
-/* === BOTÓN CTA GLOBAL === */
-.cta {
-  display: inline-block;
-  background: #0066cc;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
-}
-.cta:hover {
-  background: #004a99;
-  transform: translateY(-2px);
-}
-
 /* === HEADER Y NAVEGACIÓN === */
 header {
   position: fixed;
   top: 0; left: 0; right: 0;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  gap: 8px;                   /* espaciado uniforme */
   padding: 16px 20px;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   z-index: 999;
 }
+
 .logo-a {
   font-size: 1.4rem;
   font-weight: 700;
   color: #0066cc;
   text-decoration: none;
 }
+
+/* Ahora es el botón de menú el que empuja todo lo que viene después */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -72,7 +46,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 16px;
+  margin-left: auto;         /* push al extremo derecho */
 }
 .menu-toggle span {
   height: 4px;
@@ -90,9 +64,8 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Empuja el nav al extremo derecho */
+/* El nav desaparece hasta que se active */
 nav {
-  margin-left: auto;
   display: none;
   flex-direction: column;
   gap: 10px;
@@ -116,11 +89,11 @@ nav a.active {
   color: #0066cc;
 }
 
-/* === BOTONES DE AUTENTICACIÓN (login/register) === */
+/* === BOTONES DE LOGIN / REGISTER === */
 .auth-buttons {
   display: flex;
-  gap: 12px;
-  margin-left: 20px;
+  gap: 8px;                  /* menos gap en móvil */
+  margin-left: 0;            /* ya no empujamos aquí */
   align-items: center;
 }
 .auth-buttons .cta {
@@ -128,10 +101,26 @@ nav a.active {
   font-size: 0.9rem;
 }
 
-/* === MENÚ DROPDOWN USUARIO === */
+/* === AVATAR + DROPDOWN === */
+#user-info {
+  display: none;
+  position: relative;        /* para posicionar el menú */
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;          /* separación respecto al menú */
+}
+#user-photo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* menú desplegable */
 .user-menu {
   position: absolute;
-  top: 40px;    /* justo bajo el avatar */
+  top: 40px;
   right: 0;
   background: #fff;
   border: 1px solid #ddd;
@@ -144,8 +133,8 @@ nav a.active {
   min-width: 160px;
   z-index: 1000;
 }
-.user-menu li {
-  padding: 0;
+.user-menu.open {
+  display: block;
 }
 .user-menu li + li {
   margin-top: 4px;
@@ -167,8 +156,21 @@ nav a.active {
 .user-menu .logout-btn:hover {
   background: #f5f5f5;
 }
-.user-menu.open {
-  display: block;
+
+/* === BOTÓN CTA GLOBAL === */
+.cta {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.cta:hover {
+  background: #004a99;
+  transform: translateY(-2px);
 }
 
 /* === SCROLL‑REVEAL === */
