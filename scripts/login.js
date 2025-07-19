@@ -5,7 +5,7 @@ const btn = document.getElementById('google-login');
 
 // Capturamos el parámetro ?redirect=… de la URL
 const params     = new URLSearchParams(window.location.search);
-const redirectTo = params.get('redirect') || '/index.html';
+const redirectTo = params.get('redirect') ;
 
 btn.addEventListener('click', async () => {
   try {
