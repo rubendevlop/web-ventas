@@ -54,12 +54,6 @@ header {
   padding: 0 20px;
   z-index: 1000;
   gap: 15px;
-  /* IMPORTANTE: Si header tiene class="reveal" y el JS no la activa, se ocultará.
-     Para depurar, si no quieres animación de header al cargar, puedes quitar `class="reveal"` del HTML
-     o comentar las siguientes líneas:
-  opacity: 1; /* Asegura que el header sea visible por defecto */
-  /* transform: none; /* Asegura que el header no esté desplazado por defecto */
-  /* transition: none; /* Evita cualquier transición inicial inesperada en el header mismo */
 }
 
 .logo-a {
