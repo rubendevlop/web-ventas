@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosotros – Desarrollo SCL</title>
+  <link rel="stylesheet" href="/css/nosotros.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header class="reveal">
+    <div class="logo">
+      <a href="/index.html" class="logo-a">Desarrollo SCL</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav" aria-label="Menú principal">
+      <a href="/index.html">Inicio</a>
+      <a href="/servicios.html">Servicios</a>
+      <a href="/page/galeria.html">Galería</a>
+      <a href="/page/nosotros.html" class="active">Nosotros</a>
+    </nav>
+    <div class="auth-buttons" id="auth-buttons">
+      <a href="/page/login.html" class="cta">Iniciar sesión</a>
+      <a href="/page/register.html" class="cta">Registrarse</a>
+    </div>
+    <div id="user-info" style="display:none; position:relative;">
+      <img id="user-photo" alt="Avatar usuario" class="avatar"/>
+      <ul id="user-menu" class="user-menu">
+        <li><a href="/dashboard.html">Gestionar proyectos</a></li>
+        <li><a href="/pagos.html">Pagos</a></li>
+        <li><a href="/mensajes.html">Mensajes</a></li>
+        <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="nosotros-page">
+    <section class="intro reveal" aria-labelledby="intro-titulo">
+      <h1 id="intro-titulo">Quiénes Somos</h1>
+      <p>¡Hola! Somos Desarrollo SCL, la nueva agencia de innovación digital que acaba de nacer en 2025. Nacimos con la energía y la pasión de un equipo joven, dispuesto a transformar tus ideas en sitios web únicos y efectivos. Enfocados en la creatividad y la agilidad, ofrecemos soluciones frescas y personalizadas para ayudarte a destacar desde el primer día.</p>
+    </section>
+
+    <section class="service-tier reveal" aria-labelledby="mision-titulo">
+      <h2 id="mision-titulo">Misión</h2>
+      <p>Empoderar a las empresas con soluciones digitales innovadoras que impulsen su crecimiento y conecten con su audiencia.</p>
+    </section>
+
+    <section class="service-tier reveal" aria-labelledby="vision-titulo">
+      <h2 id="vision-titulo">Visión</h2>
+      <p>Ser referentes en desarrollo web y marketing digital en América Latina, entregando calidad y creatividad en cada proyecto.</p>
+    </section>
+
+    <section class="service-tier reveal" aria-labelledby="valores-titulo">
+      <h2 id="valores-titulo">Valores</h2>
+      <ul class="tiers-grid">
+        <li class="card reveal">
+          <h3>Innovación</h3>
+          <p>Incorporamos las últimas tecnologías y tendencias.</p>
+        </li>
+        <li class="card reveal">
+          <h3>Calidad</h3>
+          <p>Cumplimos altos estándares en cada entrega.</p>
+        </li>
+        <li class="card reveal">
+          <h3>Compromiso</h3>
+          <p>Trabajamos mano a mano contigo hasta lograr tus objetivos.</p>
+        </li>
+        <li class="card reveal">
+          <h3>Transparencia</h3>
+          <p>Mantenemos comunicación clara en todo el proceso.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="service-tier flex-cont" aria-labelledby="equipo-titulo">
+      <h2 id="equipo-titulo">Quien soy</h2>
+      <ul class="">
+        <li class="card ">
+          <img src="/nosotros-img/Diseño sin título (2).png" alt="Rubén Lopez" class="avatar"/>
+          <h3>Rubén Lopez</h3>
+          <ul class="li-contenedor">
+            <li>CEO &amp; Fundador</li>
+            <li>Desarrollador Web</li>
+            <li>Desarrollador de Aplicaciones</li>
+            <li>Gestor de Anuncios en Plataformas</li>
+            <li> (Google Ads, Facebook Ads, etc.)</li>
+          </ul>
+          
+        </li>
+       
+      </ul>
+    </section>
+
+    <section class="service-tier reveal" aria-labelledby="historia-titulo">
+      <h2 id="historia-titulo">Nuestra Historia</h2>
+      <ul class="timeline-list">
+        <li><strong>2015:</strong> Fundamos Desarrollo SCL como estudio de web freelance.</li>
+        <li><strong>2017:</strong> Incorporamos e‑commerce y marketing digital a nuestros servicios.</li>
+        <li><strong>2020:</strong> Lanzamos RRL NEXT para brindar soluciones integrales.</li>
+        <li><strong>2025:</strong> Más de 200 proyectos exitosos y presencia en 5 países.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="reveal">
+    &copy; 2025 Desarrollo SCL. Todos los derechos reservados.
+  </footer>
+
+  <script type="module" src="/scripts/firebaseConfig.js"></script>
+  <script type="module" src="/scripts/authService.js"></script>
+  <script type="module" src="/scripts/nosotros.js"></script>
+</body>
+</html>
