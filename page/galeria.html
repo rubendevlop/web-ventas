@@ -9,34 +9,35 @@
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="logo-a">Desarrollo SCL</a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-      &#9776;
+  <header class="">
+    <a href="../index.html" class="logo-a">Desarrollo SCL</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    <nav id="nav">
-      <a href="/index.html">Inicio</a>
-      <a href="/page/servicios.html">Servicios</a>
-      <a href="/page/galeria.html" class="active">Galería</a>
-      <a href="#">Nosotros</a>
+
+    <nav id="mainNav">
+      <a href="../index.html">Inicio</a>
+      <a href="./servicios.html">Servicios</a>
+      <a href="./galeria.html" class="active">Galería</a>
+      <a href="#nosotros">Nosotros</a>
     </nav>
 
-      <!-- CONTENEDOR DE AUTENTICACIÓN/DESAUTENTICACIÓN -->
-   <div class="auth-buttons" id="auth-buttons">
-    <a href="./page/login.html"    class="cta">Iniciar sesión</a>
-    <a href="./page/register.html" class="cta">Registrarse</a>
-  </div>
+    <div class="auth-buttons" id="auth-buttons">
+      <a href="./login.html" class="cta">Iniciar sesión</a>
+      <a href="./register.html" class="cta">Registrarse</a>
+    </div>
 
-  <!-- SALUDO Y AVATAR CON DROPDOWN -->
-<div id="user-info" style="display:none; position:relative;">
-  <img id="user-photo" alt="Avatar usuario" class="avatar"/>
-  <ul id="user-menu" class="user-menu">
-    <li><a href="/dashboard.html">Gestionar proyectos</a></li>
-    <li><a href="/pagos.html">Pagos</a></li>
-    <li><a href="/mensajes.html">Mensajes</a></li>
-    <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
-  </ul>
-</div>
+    <div id="user-info" style="display:none; position:relative;">
+      <img id="user-photo" alt="Avatar usuario" class="avatar"/>
+      <ul id="user-menu" class="user-menu">
+        <li><a href="../dashboard.html">Gestionar proyectos</a></li>
+        <li><a href="../pagos.html">Pagos</a></li>
+        <li><a href="../mensajes.html">Mensajes</a></li>
+        <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
+      </ul>
+    </div>
   </header>
 
   <main>
@@ -45,10 +46,10 @@
       <p class="galeria-descripcion">Algunos ejemplos de sitios creados por nuestro equipo.</p>
 
       <div class="galeria-grid">
-        <img src="/img/pizzeria.png"         alt="Proyecto 1">
-        <img src="/img/urban-style.png"      alt="Proyecto 2">
-        <img src="/img/wiki-harry-potter.png"alt="Proyecto 3">
-        <img src="/img/nicosia.png"          alt="Proyecto 4">
+        <img src="../img/pizzeria.png" alt="Proyecto 1" >
+        <img src="../img/urban-style.png" alt="Proyecto 2">
+        <img src="../img/wiki-harry-potter.png" alt="Proyecto 3" >
+        <img src="../img/nicosia.png" alt="Proyecto 4" >
       </div>
     </section>
   </main>
@@ -57,8 +58,8 @@
     &copy; 2025 Desarrollo SCL. Todos los derechos reservados.
   </footer>
 
-  <script src="/scripts/galeria.js"></script>
-  <script type="module" src="/scripts/firebaseConfig.js"></script>
-  <script type="module" src="/scripts/authService.js"></script>
+  <script type="module" src="/scripts/galeria.js"></script>
+  <script type="module" src="../scripts/firebaseConfig.js"></script>
+  <script type="module" src="../scripts/authService.js"></script>
 </body>
 </html>
