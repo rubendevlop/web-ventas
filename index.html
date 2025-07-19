@@ -31,14 +31,17 @@
     <a href="./page/register.html" class="cta">Registrarse</a>
   </div>
 
-  <!-- SALUDO Y BOTÓN DE LOGOUT (oculto por defecto) -->
-  <!-- SALUDO Y AVATAR (oculto por defecto) -->
-  <div id="user-info" style="display:none; align-items:center; gap:8px;">
-  <img id="user-photo" alt="Avatar usuario" />
-  <!-- opcionalmente, podrías dejar el email junto al avatar: -->
-  <!-- <span id="user-email" style="font-weight:600;"></span> -->
-  <button id="logout-btn" class="cta">Cerrar sesión</button>
-  </div>
+  <!-- SALUDO Y AVATAR CON DROPDOWN -->
+<div id="user-info" style="display:none; position:relative;">
+  <img id="user-photo" alt="Avatar usuario" class="avatar"/>
+  <ul id="user-menu" class="user-menu">
+    <li><a href="/dashboard.html">Gestionar proyectos</a></li>
+    <li><a href="/pagos.html">Pagos</a></li>
+    <li><a href="/mensajes.html">Mensajes</a></li>
+    <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
+  </ul>
+</div>
+
 
   </header>
 

@@ -1,75 +1,106 @@
+// index.js
 import { onUserChanged, logout } from './authService.js';
 
+//
+// Referencias al DOM
+//
 const authButtons = document.getElementById('auth-buttons');
 const userInfo    = document.getElementById('user-info');
 const userPhoto   = document.getElementById('user-photo');
+const userMenu    = document.getElementById('user-menu');
 const btnLogout   = document.getElementById('logout-btn');
 
+const menuBtn     = document.getElementById('menu-toggle');
+const nav         = document.getElementById('nav');
+
+//
+// 1. Detectar cambios de sesión y actualizar header
+//
 onUserChanged(user => {
   if (user) {
-    // Oculto los botones de login/register
+    // ocultar login/register
     authButtons.style.display = 'none';
 
-    // Pongo la foto de perfil
-    if (user.photoURL) {
-      userPhoto.src = user.photoURL;
-    } else {
-      // fallback a un icono genérico si no hay foto
-      userPhoto.src = '/images/avatar-default.png';
-    }
+    // cargar avatar
+    userPhoto.src = user.photoURL || '/images/avatar-default.png';
 
-    // Muestro el contenedor de usuario
+    // mostrar avatar + dropdown container
     userInfo.style.display = 'flex';
   } else {
-    // Vuelvo a mostrar login/register
+    // mostrar login/register
     userInfo.style.display    = 'none';
     authButtons.style.display = 'flex';
   }
 });
 
+//
+// 2. Logout
+//
 btnLogout.addEventListener('click', async () => {
   try {
     await logout();
+    // onUserChanged se encargará de reconfigurar el header
   } catch (err) {
     console.error('Error al cerrar sesión:', err);
   }
 });
 
+//
+// 3. Dropdown del avatar
+//
+userPhoto.addEventListener('click', e => {
+  e.stopPropagation();
+  userMenu.classList.toggle('open');
+});
 
-  
-  // 1. Menú hamburguesa
-    const btn = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav');
-    btn.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      btn.classList.toggle('active');
-    });
-  
-    // 2. Smooth scroll para enlaces internos
-    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-          nav.classList.remove('active');
-          btn.classList.remove('active');
-        }
-      });
-    });
-  
-    // 3. Scroll‑reveal con Intersection Observer
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-  
-    document.querySelectorAll('.reveal').forEach(el => {
-      observer.observe(el);
-    });
-  
-  
+// cerrar dropdown al hacer click fuera
+document.addEventListener('click', () => {
+  userMenu.classList.remove('open');
+});
+
+// evitar que clicks dentro del menú lo cierren
+userMenu.addEventListener('click', e => {
+  e.stopPropagation();
+});
+
+//
+// 4. Menú hamburguesa
+//
+menuBtn.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  menuBtn.classList.toggle('active');
+});
+
+//
+// 5. Smooth scroll para enlaces internos
+//
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      nav.classList.remove('active');
+      menuBtn.classList.remove('active');
+    }
+  });
+});
+
+//
+// 6. Scroll‑reveal con IntersectionObserver
+//
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, {
+  threshold: 0.1
+});
+
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});
