@@ -4,40 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Referencias
     const menuBtn     = document.getElementById('menuToggle');
     const nav         = document.getElementById('mainNav');
-    const authButtons = document.getElementById('auth-buttons');
-    const userInfo    = document.getElementById('user-info');
-    const userPhoto   = document.getElementById('user-photo');
-    const userMenu    = document.getElementById('user-menu');
-    const btnLogout   = document.getElementById('logout-btn');
+    // const authButtons = document.getElementById('auth-buttons');
+    // const userInfo    = document.getElementById('user-info');
+    // const userPhoto   = document.getElementById('user-photo');
+    // const userMenu    = document.getElementById('user-menu');
+    // const btnLogout   = document.getElementById('logout-btn');
 
     // 1) Estado de autenticación
-    onUserChanged(user => {
-        if (user) {
-            authButtons.style.display = 'none';
-            userPhoto.src = user.photoURL || '/images/avatar-default.png';
-            userInfo.style.display = 'flex';
-        } else {
-            userInfo.style.display    = 'none';
-            authButtons.style.display = 'flex';
-        }
-    });
+    // onUserChanged(user => {
+    //     if (user) {
+    //         authButtons.style.display = 'none';
+    //         userPhoto.src = user.photoURL || '/images/avatar-default.png';
+    //         userInfo.style.display = 'flex';
+    //     } else {
+    //         userInfo.style.display    = 'none';
+    //         authButtons.style.display = 'flex';
+    //     }
+    // });
 
-    // 2) Logout
-    btnLogout.addEventListener('click', async () => {
-        try {
-            await logout();
-        } catch (err) {
-            console.error('Error al cerrar sesión:', err);
-        }
-    });
+    // // 2) Logout
+    // btnLogout.addEventListener('click', async () => {
+    //     try {
+    //         await logout();
+    //     } catch (err) {
+    //         console.error('Error al cerrar sesión:', err);
+    //     }
+    // });
 
     // 3) Dropdown del avatar
-    userPhoto.addEventListener('click', e => {
-        e.stopPropagation();
-        userMenu.classList.toggle('open');
-    });
-    document.addEventListener('click', () => userMenu.classList.remove('open'));
-    userMenu.addEventListener('click', e => e.stopPropagation());
+    // userPhoto.addEventListener('click', e => {
+    //     e.stopPropagation();
+    //     userMenu.classList.toggle('open');
+    // });
+    // document.addEventListener('click', () => userMenu.classList.remove('open'));
+    // userMenu.addEventListener('click', e => e.stopPropagation());
 
     // 4) Menú hamburguesa
     if (menuBtn && nav) {
@@ -76,20 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 7) Mover auth-buttons en móvil (<600px) y desktop (>=600px)
-    function placeAuthButtons() {
-        const header = document.querySelector('header');
-        if (window.innerWidth < 600) {
-            if (!nav.contains(authButtons)) {
-                nav.appendChild(authButtons);
-            }
-        } else {
-            if (!header.contains(authButtons)) {
-                header.insertBefore(authButtons, userInfo);
-            }
-            nav.classList.remove('active');
-            menuBtn.classList.remove('active');
-        }
-    }
+    // function placeAuthButtons() {
+    //     const header = document.querySelector('header');
+    //     if (window.innerWidth < 600) {
+    //         if (!nav.contains(authButtons)) {
+    //             nav.appendChild(authButtons);
+    //         }
+    //     } else {
+    //         if (!header.contains(authButtons)) {
+    //             header.insertBefore(authButtons, userInfo);
+    //         }
+    //         nav.classList.remove('active');
+    //         menuBtn.classList.remove('active');
+    //     }
+    // }
     placeAuthButtons();
     window.addEventListener('resize', placeAuthButtons);
 });
