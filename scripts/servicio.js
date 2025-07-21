@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2) Logout
-  btnLogout.addEventListener(' click', async () => {
-    try {
-      await logout();
-    } catch (err) {
-      console.error('Error al cerrar sesión:', err);
-    }
-  });
-
+// 2. Logout
+//
+btnLogout.addEventListener('click', async () => {
+  try {
+    await logout();
+  } catch (err) {
+    console.error('Error al cerrar sesión:', err);
+  }
+});
   // 3) Dropdown del avatar
   userPhoto.addEventListener('click', e => {
     e.stopPropagation();
