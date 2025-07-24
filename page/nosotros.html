@@ -3,85 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desarrollo CSL (Custom Systems Lopez) – Nosotros</title>
-  <link rel="stylesheet" href="/css/nosotros.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Nosotros - KbooM Dev</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Variables y estilos base de servicios.html -->
+  <style>
+    :root {
+      --brand-primary:   #FF7700;
+      --brand-secondary: #CC6000;
+      --body-bg:         #FFFFFF;
+      --body-color:      #333333;
+      --card-bg:         #FFFFFF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--body-bg) !important;
+      color: var(--body-color);
+      padding-top: 80px;
+    }
+    .navbar {
+      background-color: var(--body-bg) !important;
+      height: 80px;
+      padding: 0;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: var(--brand-primary) !important;
+      transition: color .3s;
+    }
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: var(--brand-secondary) !important;
+    }
+    .section-title {
+      color: var(--brand-primary);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--body-color);
+      margin-bottom: 2rem;
+    }
+    /* Estilo para sección Quién soy */
+    .intro-section {
+      background-color: #f8f9fa;
+      border-radius: .5rem;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .intro-section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    /* Estilo para Valores */
+    .values-section .card {
+      background-color: #fff;
+      border: none;
+      border-radius: .5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .values-section .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .values-section .card-title {
+      color: var(--brand-primary);
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    footer {
+      color: var(--body-color) !important;
+    }
+    .navbar-brand img {
+      height: 60px;
+    }
+    .sobre-mi .card{
+      box-shadow: 2px 15px 15px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
-<body>
 
-  <header class="reveal">
-    <div class="logo">
-      <a href="/index.html" class="logo-a">Desarrollo CSL</a>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm reveal">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">
+        <img src="../nosotros-img/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="/index.html" class="nav-link">Inicio</a></li>
+          <li class="nav-item"><a href="/page/servicios.html" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="/page/galeria.html" class="nav-link">Galería</a></li>
+          <li class="nav-item"><a href="/page/nosotros.html" class="nav-link active">Nosotros</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav id="mainNav">
-      <a href="/index.html">Inicio</a>
-      <a href="/page/servicios.html">Servicios</a>
-      <a href="/page/galeria.html">Galería</a>
-      <a href="/page/nosotros.html" class="active">Nosotros</a>
-    </nav>
-
-    <!-- <div class="auth-buttons" id="auth-buttons">
-      <a href="/page/login.html" class="cta">Iniciar sesión</a>
-      <a href="/page/register.html" class="cta">Registrarse</a>
-    </div>
-
-    <div id="user-info" style="display:none; position:relative;">
-      <img id="user-photo" alt="Avatar usuario" class="avatar"/>
-      <ul id="user-menu" class="user-menu">
-        <li><a href="/dashboard.html">Gestionar proyectos</a></li>
-        <li><a href="/pagos.html">Pagos</a></li>
-        <li><a href="/mensajes.html">Mensajes</a></li>
-        <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
-      </ul>
-    </div> -->
   </header>
 
-  <main class="page-nosotros reveal">
-    <section class="intro" aria-labelledby="nosotros-titulo">
-      <h1 id="nosotros-titulo">Quién soy</h1>
-      <p>Soy <strong>Rubén Lopez</strong>, desarrollador web, desarrollador de aplicaciones, diseñador web y especializado en publicidad en plataformas digitales. Como <strong>CEO y fundador</strong> de Desarrollo CSL (Custom Systems Lopez), combino creatividad y tecnología para ofrecer soluciones digitales a medida.</p>
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="flex-fill">
+
+    <!-- QUIÉN SOY -->
+    <section class="py-5 reveal intro-section" aria-labelledby="nosotros-titulo">
+      <div class="container">
+        <h1 id="nosotros-titulo" class="section-title text-center">Como empresa</h1>
+        <p class="section-desc text-center">
+          Mi empresa <strong>KBOOM DEV</strong>, se dedica al desarrollado web, desarrollado de aplicaciones, diseñado web y
+          publicidad en plataformas digitales. Como <strong>CEO y fundador</strong> de KBOOM DEV, combino creatividad y tecnología para ofrecer soluciones digitales a medida.
+        </p>
+      </div>
     </section>
 
-    <section class="team" aria-labelledby="equipo-titulo">
-      <h2 id="equipo-titulo">Sobre mí</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="/nosotros-img/Diseño sin título (2).png" alt="Rubén Lopez, CEO & Fundador" />
-          <h3>Rubén Lopez</h3>
-          <p><strong>CEO & Fundador</strong></p>
-          <ul>
-            <li>Desarrollador Web</li>
-            <li>Desarrollador de Aplicaciones</li>
-            <li>Diseñador Web</li>
-            <li>Publicidad en Plataformas</li>
-          </ul>
+    <!-- SOBRE MÍ -->
+    <section class="py-5 reveal sobre-mi reveal" aria-labelledby="equipo-titulo">
+      <div class="container">
+        <h2 id="equipo-titulo" class="section-title text-center">Sobre mí</h2>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 col-lg-4 d-flex">
+            <div class="card flex-fill h-100">
+              <img src="/nosotros-img/Diseño sin título (2).png" class="card-img-top" alt="Rubén Lopez, CEO & Fundador">
+              <div class="card-body text-center">
+                <h3 class="card-title">Rubén Lopez</h3>
+                <p class="card-text"><strong>CEO & Fundador</strong></p>
+                <ul class="list-unstyled">
+                  <li>Desarrollador Web</li>
+                  <li>Desarrollador de Aplicaciones</li>
+                  <li>Diseñador Web</li>
+                  <li>Publicidad Digital</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="values" aria-labelledby="valores-titulo">
-      <h2 id="valores-titulo">Mis Valores</h2>
-      <ul>
-        <li><strong>Innovación:</strong> Siempre buscando las últimas tecnologías y tendencias.</li>
-        <li><strong>Transparencia:</strong> Comunicación clara y reportes constantes.</li>
-        <li><strong>Excelencia:</strong> Entrega de productos de alta calidad y rendimiento.</li>
-        <li><strong>Colaboración:</strong> Trabajo cercano con cada cliente.</li>
-      </ul>
+    <!-- MIS VALORES -->
+    <section class="py-5 reveal values-section" aria-labelledby="valores-titulo">
+      <div class="container">
+        <h2 id="valores-titulo" class="section-title text-center">Mis Valores</h2>
+        <p class="section-desc text-center">Los principios que guían nuestro trabajo diario.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card h-100 text-center p-2">
+              <div class="card-body">
+                <h4 class="card-title">Innovación</h4>
+                <p class="card-text">Siempre buscando las últimas tecnologías y tendencias.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center p-3">
+              <div class="card-body">
+                <h4 class="card-title">Transparencia</h4>
+                <p class="card-text">Comunicación clara y reportes constantes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center p-3">
+              <div class="card-body">
+                <h4 class="card-title">Excelencia</h4>
+                <p class="card-text">Entrega de productos de alta calidad y rendimiento.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 text-center p-3">
+              <div class="card-body">
+                <h4 class="card-title">Colaboración</h4>
+                <p class="card-text">Trabajo cercano con cada cliente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
   </main>
 
-  <footer class="reveal">
-    &copy; 2025 Desarrollo CLS. Todos los derechos reservados.
+  <!-- FOOTER -->
+  <footer class="bg-light text-center py-4 mt-auto reveal">
+    &copy; 2025 KBOOM DEV. Todos los derechos reservados.
   </footer>
 
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS personalizados -->
   <script type="module" src="/scripts/firebaseConfig.js"></script>
   <script type="module" src="/scripts/authService.js"></script>
   <script type="module" src="/scripts/servicio.js"></script>
   <script src="/scripts/wpbtn.js"></script>
+  <script>
+    // Scroll‑reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

@@ -3,103 +3,281 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desarrollo CSL (Custom Systems Lopez)</title>
+  <title>Inicio - KbooM Dev</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Variables y estilos base de servicios.html -->
+  <style>
+    :root {
+      --brand-primary:   #FF7700;  /* naranja medio */
+      --brand-secondary: #CC6000;  /* naranja oscuro */
+      --body-bg:         #FFFFFF;  /* blanco */
+      --body-color:      #333333;  /* gris oscuro */
+      --card-bg:         #FFFFFF;  /* blanco */
+    }
+  
+    /* === Reset y body === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: white !important;
+      color: var(--body-color);
+      padding-top: 70px;
+    }
+  
+    /* === NAVBAR === */
+    .navbar {
+      background-color: var(--body-bg) !important;
+      height: 80px;
+      padding: 0;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: var(--brand-primary) !important;
+      transition: color .3s;
+    }
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: var(--brand-secondary) !important;
+    }
+  
+    /* === HERO === */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+      color: #fff !important;
+      padding: 5rem 0;
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff !important;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #fff!important;
+    }
+    .btn-hero {
+      background-color: #fff;
+      color: var(--brand-primary);
+      font-weight: 600;
+      border-radius: 50px;
+      padding: .75rem 1.5rem;
+      box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.384);
+      transition: background .3s, color .3s;
+    }
+    .btn-hero:hover {
+      background-color: #f1f1f1;
+      color: var(--brand-secondary);
+    }
+  
+    /* === SEPARADORES === */
+    .section-title {
+      color: var(--brand-primary);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--body-color);
+      margin-bottom: 2rem;
+    }
+  
+    /* === TARJETAS === */
+    .card {
+      background-color: var(--card-bg);
+      border: none;
+      border-radius: .5rem;
+      box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.801);
+      transition: transform .3s, box-shadow .3s;
+      width: 500px;
+      height: 250px;
+      
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.493);
+    }
+    .card h3 {
+      color: var(--brand-primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card .h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card ul li {
+      margin-bottom: .5rem;
+    }
+  
+    /* === SCROLL‑REVEAL === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .navbar-brand img{
+      height: 80px;
+    }
+    footer{
+      color: var(--body-color) !important;
+    }
+  
+  </style>
+
+  <!-- Tu CSS personalizado -->
   <link rel="stylesheet" href="./css/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header >
-    <div class="logo">
-      <a href="index.html" class="logo-a">Desarrollo CSL</a>
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="../nosotros-img/logo.png" alt="logo" height="60">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-controls="nav"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <nav id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="./index.html" class="nav-link active">Inicio</a></li>
+          <li class="nav-item"><a href="/page/servicios.html" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="/page/galeria.html" class="nav-link">Galería</a></li>
+          <li class="nav-item"><a href="/page/nosotros.html" class="nav-link">Nosotros</a></li>
+        </ul>
+      </nav>
     </div>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav id="nav">
-      <a href="./index.html" class="active">Inicio</a>
-      <a href="/page/servicios.html">Servicios</a>
-      <a href="/page/galeria.html">Galería</a>
-      <a href="/page/nosotros.html">Nosotros</a>
-    </nav>
-
-   <!-- CONTENEDOR DE AUTENTICACIÓN/DESAUTENTICACIÓN -->
-   <!-- <div class="auth-buttons" id="auth-buttons">
-    <a href="./page/login.html"    class="cta">Iniciar sesión</a>
-    <a href="./page/register.html" class="cta">Registrarse</a>
-  </div> -->
-
-  <!-- SALUDO Y AVATAR CON DROPDOWN -->
-<!-- <div id="user-info" style="display:none; position:relative;">
-  <img id="user-photo" alt="Avatar usuario" class="avatar"/>
-  <ul id="user-menu" class="user-menu">
-    <li><a href="/dashboard.html">Gestionar proyectos</a></li>
-    <li><a href="/pagos.html">Pagos</a></li>
-    <li><a href="/mensajes.html">Mensajes</a></li>
-    <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
-  </ul>
-</div> -->
-
-
   </header>
 
-  <section class="hero " id="inicio">
-    <h1>Potenciá tu presencia online</h1>
-    <p>Diseñamos y desarrollamos sitios web a medida para tu negocio o emprendimiento.</p>
-  </section>
-
-  <section class="servicios reveal" id="servicios">
-    <h2 class="titulo-servicios reveal">Servicios Personalizados</h2>
-    <div class="servicios-grid">
-      <div class="servicio reveal">
-        <h3>Diseño de Sitios Web</h3>
-        <p>Tu página profesional con diseño responsivo, moderna y enfocada en resultados.</p>
-      </div>
-      <div class="servicio reveal">
-        <h3>Mantenimiento Web</h3>
-        <p>Actualizaciones, optimización y mejoras continuas para tu web.</p>
-      </div>
-      <div class="servicio reveal">
-        <h3>Asesoramiento de Marketing</h3>
-        <p>Ofrecemos acompañarte en todo el proceso: desde el diagnóstico inicial hasta la ejecución de campañas.</p>
-      </div>
-      <div class="servicio reveal">
-        <h3>Landing Pages</h3>
-        <p>Páginas únicas para campañas publicitarias o productos específicos.</p>
-      </div>
-      <div class="servicio reveal">
-        <h3>Portafolios Profesionales</h3>
-        <p>Mostrá tu trabajo al mundo con estilo e impacto.</p>
-      </div>
-      <div class="servicio reveal">
-        <h3>Tiendas Online</h3>
-        <p>Soluciones completas de e‑commerce para vender 24/7.</p>
-      </div>
-    </div>
-    <div class="servicios-footer reveal">
-      <a class="cta" href="/page/servicios.html">Conocer más...</a>
+  <!-- HERO -->
+  <section class="hero text-center reveal" id="inicio">
+    <div class="container">
+      <h1>Potenciá tu presencia online</h1>
+      <p>Diseñamos y desarrollamos sitios web a medida para tu negocio o emprendimiento.</p>
     </div>
   </section>
 
-  <section class="contacto reveal" id="contacto">
-    <h2>¿Querés una web para tu negocio?</h2>
-    <p>¡Contactanos por WhatsApp!</p>
-    <a class="whatsapp-link" href="https://wa.me/543815624585" target="_blank">
-      📞 +54 381 562-4585 – Escribinos
-    </a>
+  <!-- SERVICIOS -->
+  <section class="servicios-page py-5 reveal" id="servicios">
+    <div class="container">
+      <h2 class="section-title text-center">Servicios Personalizados</h2>
+      <p class="section-desc text-center">Descubre cómo podemos elevar tu marca en línea</p>
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-4">
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Diseño de Sitios Web</h3>
+              <p>Tu página profesional con diseño responsivo, moderna y enfocada en resultados.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Mantenimiento Web</h3>
+              <p>Actualizaciones, optimización y mejoras continuas para tu web.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Asesoramiento de Marketing</h3>
+              <p>Ofrecemos acompañarte en todo el proceso: desde el diagnóstico inicial hasta la ejecución de campañas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Landing Pages</h3>
+              <p>Páginas únicas para campañas publicitarias o productos específicos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Portafolios Profesionales</h3>
+              <p>Mostrá tu trabajo al mundo con estilo e impacto.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex">
+          <div class="card flex-fill">
+            <div class="card-body">
+              <h3>Tiendas Online</h3>
+              <p>Soluciones completas de e‑commerce para vender 24/7.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/page/servicios.html" class="btn btn-primary">Conocer más...</a>
+      </div>
+    </div>
   </section>
 
-  <footer class="reveal">
-    &copy; 2025 Desarrollo CLS. Todos los derechos reservados.
+  <!-- CONTACTO -->
+  <section class="hero py-5 bg-light reveal" id="contacto">
+    <div class="container text-center">
+      <h2>¿Querés una web para tu negocio?</h2>
+      <p>¡Contactanos por WhatsApp!</p>
+      <a href="https://wa.me/543815624585" target="_blank" class="btn btn-success">
+        📞 +54 381 562-4585 – Escribinos
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-light text-center py-4">
+    &copy; 2025 KBOOM DEV. Todos los derechos reservados.
   </footer>
 
-  <!-- Aquí enlazamos nuestro JavaScript externo -->
-<script type="module" src="/scripts/firebaseConfig.js"></script>
-<script type="module" src="/scripts/authService.js"></script>
-<script type="module" src="/scripts/index.js"></script>
-<script type="module" src="/scripts/wpbtn.js"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Tus JS existentes -->
+  <script type="module" src="/scripts/firebaseConfig.js"></script>
+  <script type="module" src="/scripts/authService.js"></script>
+  <script type="module" src="/scripts/index.js"></script>
+  <script type="module" src="/scripts/wpbtn.js"></script>
+
+  <script>
+    // Scroll-reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 
 </body>
 </html>

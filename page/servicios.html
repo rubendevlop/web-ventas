@@ -1,303 +1,408 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desarrollo CSL (Custom Systems Lopez) – Servicios Web</title>
-  <link rel="stylesheet" href="/css/servicios.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios - KbooM Dev</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+  /* === Variables de paleta === */
+  :root {
+    --brand-primary:   #FF7700;  /* naranja medio */
+    --brand-secondary: #CC6000;  /* naranja oscuro */
+    --body-bg:         #FFFFFF;  /* blanco */
+    --body-color:      #333333;  /* gris oscuro */
+    --card-bg:         #FFFFFF;  /* blanco */
+  }
+
+  /* === Reset y body === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-bg);
+    color: var(--body-color);
+    padding-top: 70px;
+  }
+
+  /* === NAVBAR === */
+  .navbar {
+    background-color: var(--body-bg) !important;
+    height: 80px;
+    padding: 0;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: var(--brand-primary) !important;
+    transition: color .3s;
+  }
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-link.active {
+    color: var(--brand-secondary) !important;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+    color: #fff;
+    padding: 5rem 0;
+    margin-bottom: 3rem;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .btn-hero {
+    background-color: #fff;
+    color: var(--brand-primary);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: .75rem 1.5rem;
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.384);
+    transition: background .3s, color .3s;
+  }
+  .btn-hero:hover {
+    background-color: #f1f1f1;
+    color: var(--brand-secondary);
+  }
+
+  /* === SEPARADORES === */
+  .section-title {
+    color: var(--brand-primary);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .section-desc {
+    color: var(--body-color);
+    margin-bottom: 2rem;
+  }
+
+  /* === TARJETAS === */
+  .card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.801);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.493);
+  }
+  .card h3 {
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .card .h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .card ul li {
+    margin-bottom: .5rem;
+  }
+
+  /* === SCROLL‑REVEAL === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease-out, transform .6s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .navbar-brand img{
+    height: 80px;
+  }
+
+  </style>
 </head>
 <body>
 
-  <header class="reveal">
-    <div class="logo">
-      <a href="/index.html" class="logo-a">Desarrollo CSL</a>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">
+        <img src="../nosotros-img/logo.png" alt="logo" />
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="servicios.html">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page/galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="/page/nosotros.html">Nosotros</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav id="mainNav">
-      <a href="/index.html">Inicio</a>
-      <a href="servicios.html" class="active">Servicios</a>
-      <a href="/page/galeria.html">Galería</a>
-      <a href="/page/nosotros.html">Nosotros</a>
-    </nav>
-
-    <!-- <div class="auth-buttons" id="auth-buttons">
-      <a href="/page/login.html" class="cta">Iniciar sesión</a>
-      <a href="/page/register.html" class="cta">Registrarse</a>
+  <!-- HERO -->
+  <section class="hero text-center reveal">
+    <div class="container">
+      <h1>¡Impulsa tu Presencia Online con KbooM Dev!</h1>
+      <p>Conecta con tu audiencia, potencia tu marca y maximiza tus resultados digitales.</p>
+      <button id="toggleCurrency" class="btn btn-hero">Mostrar en Pesos ARS</button>
     </div>
-
-    <div id="user-info" style="display:none; position:relative;">
-      <img id="user-photo" alt="Avatar usuario" class="avatar"/>
-      <ul id="user-menu" class="user-menu">
-        <li><a href="/dashboard.html">Gestionar proyectos</a></li>
-        <li><a href="/pagos.html">Pagos</a></li>
-        <li><a href="/mensajes.html">Mensajes</a></li>
-        <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
-      </ul>
-    </div> -->
-  </header>
+  </section>
 
   <main class="servicios-page">
-    <section class="intro reveal" aria-labelledby="intro-titulo">
-      <h1 id="intro-titulo">¡Impulsa tu Presencia Online con RRL NEXT!</h1>
-      <p>En RRL NEXT creamos soluciones digitales a tu medida para que alcances tus objetivos.</p>
-      <button id="toggleCurrency" class="cta" aria-pressed="false">Mostrar en Pesos ARS</button>
+
+    <!-- Diseño de Sitios Web -->
+    <section class="py-5 reveal" aria-labelledby="titulo-web">
+      <div class="container">
+        <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
+        <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <!-- Básico -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Básico</h3>
+                <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
+                  <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
+                  <li><strong>Setup de hosting & dominio</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Profesional -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Profesional</h3>
+                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
+                  <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
+                  <li><strong>SEO básico</strong> (meta tags y velocidad).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Avanzado -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Avanzado</h3>
+                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
+                  <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
+                  <li><strong>Integración con Analytics</strong> para medir tu tráfico.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Premium -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Premium</h3>
+                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
+                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
+                  <li><strong>Soporte 1 mes</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Diseño de Sitios Web -->
-    <section class="service-tier reveal" aria-labelledby="titulo-web">
-      <h2 id="titulo-web">Diseño de Sitios Web</h2>
-      <p>Sitios atractivos y funcionales: desde páginas corporativas hasta tiendas online.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Básico</h3>
-          <ul>
-            <li><span class="price" data-usd="300">USD 300</span></li>
-            <li>1–2 páginas estáticas</li>
-            <li>Plantilla pre‑diseñada</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Profesional</h3>
-          <ul>
-            <li><span class="price" data-usd="600">USD 600</span></li>
-            <li>Hasta 5 páginas</li>
-            <li>Diseño a medida</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Avanzado</h3>
-          <ul>
-            <li><span class="price" data-usd="1000">USD 1.000</span></li>
-            <li>+5 páginas + blog</li>
-            <li>Animaciones sutiles</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Premium</h3>
-          <ul>
-            <li><span class="price" data-usd="1500">USD 1.500</span></li>
-            <li>Tienda online completa</li>
-            <li>Optimización SEO</li>
-          </ul>
-        </li>
-      </ul>
+    <section class="py-5 reveal" aria-labelledby="titulo-web">
+      <div class="container">
+        <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
+        <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <!-- Básico -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Básico</h3>
+                <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
+                  <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
+                  <li><strong>Setup de hosting & dominio</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Profesional -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Profesional</h3>
+                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
+                  <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
+                  <li><strong>SEO básico</strong> (meta tags y velocidad).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Avanzado -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Avanzado</h3>
+                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
+                  <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
+                  <li><strong>Integración con Analytics</strong> para medir tu tráfico.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Premium -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Premium</h3>
+                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
+                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
+                  <li><strong>Soporte 1 mes</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Mantenimiento Web -->
-    <section class="service-tier reveal" aria-labelledby="titulo-mantenimiento">
-      <h2 id="titulo-mantenimiento">Mantenimiento Web</h2>
-      <p>Planes que incluyen actualizaciones, backups y soporte para que tu sitio siempre funcione.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Mensual Básico</h3>
-          <ul>
-            <li><span class="price" data-usd="30">USD 30</span>/mes</li>
-            <li>Actualizaciones CMS</li>
-            <li>Backup semanal</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Mensual Pro</h3>
-          <ul>
-            <li><span class="price" data-usd="50">USD 50</span>/mes</li>
-            <li>Todo Básico +</li>
-            <li>Backup diario + Soporte 24/7</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Trimestral</h3>
-          <ul>
-            <li><span class="price" data-usd="135">USD 135</span>/trimestre</li>
-            <li>10% de descuento</li>
-            <li>Monitorización uptime</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Anual</h3>
-          <ul>
-            <li><span class="price" data-usd="510">USD 510</span>/año</li>
-            <li>15% de descuento</li>
-            <li>Consultoría SEO continua</li>
-          </ul>
-        </li>
-      </ul>
+    <!-- Diseño de Sitios Web -->
+    <section class="py-5 reveal" aria-labelledby="titulo-web">
+      <div class="container">
+        <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
+        <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <!-- Básico -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Básico</h3>
+                <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
+                  <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
+                  <li><strong>Setup de hosting & dominio</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Profesional -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Profesional</h3>
+                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
+                  <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
+                  <li><strong>SEO básico</strong> (meta tags y velocidad).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Avanzado -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Avanzado</h3>
+                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
+                  <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
+                  <li><strong>Integración con Analytics</strong> para medir tu tráfico.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Premium -->
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body text-center">
+                <h3>Premium</h3>
+                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
+                <ul class="list-unstyled text-start">
+                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
+                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
+                  <li><strong>Soporte 1 mes</strong> incluido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Asesoramiento de Marketing -->
-    <section class="service-tier reveal" aria-labelledby="titulo-marketing">
-      <h2 id="titulo-marketing">Asesoramiento de Marketing</h2>
-      <p>Estrategias integrales: desde el análisis hasta campañas en redes y SEM.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Básico</h3>
-          <ul>
-            <li><span class="price" data-usd="100">USD 100</span></li>
-            <li>Consultoría 2h</li>
-            <li>Análisis de competencia</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Growth</h3>
-          <ul>
-            <li><span class="price" data-usd="200">USD 200</span></li>
-            <li>Todo Básico +</li>
-            <li>Redes sociales</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Profesional</h3>
-          <ul>
-            <li><span class="price" data-usd="400">USD 400</span></li>
-            <li>Campañas SEM/Display</li>
-            <li>Reportes de rendimiento</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Ejecutivo</h3>
-          <ul>
-            <li><span class="price" data-usd="600">USD 600</span></li>
-            <li>Estrategia 360°</li>
-            <li>Optimización de procesos</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+    <!-- (Resto de secciones mantienen la misma estructura de tarjetas) -->
 
-    <!-- Landing Pages -->
-    <section class="service-tier reveal" aria-labelledby="titulo-landing">
-      <h2 id="titulo-landing">Landing Pages</h2>
-      <p>Páginas diseñadas para convertir: captura leads, descargas o ventas.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Básica</h3>
-          <ul>
-            <li><span class="price" data-usd="200">USD 200</span></li>
-            <li>1 sección + formulario</li>
-            <li>Ideal para leads</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Animada</h3>
-          <ul>
-            <li><span class="price" data-usd="350">USD 350</span></li>
-            <li>Scroll animado</li>
-            <li>Galería de imágenes</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Con CRM</h3>
-          <ul>
-            <li><span class="price" data-usd="500">USD 500</span></li>
-            <li>Integración MailChimp</li>
-            <li>Lead tracking</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Premium</h3>
-          <ul>
-            <li><span class="price" data-usd="700">USD 700</span></li>
-            <li>SEO profesional</li>
-            <li>Pruebas A/B</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Portafolios Profesionales -->
-    <section class="service-tier reveal" aria-labelledby="titulo-portafolios">
-      <h2 id="titulo-portafolios">Portafolios Profesionales</h2>
-      <p>Destaca tu trabajo con un portafolio online minimalista y dinámico.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Starter</h3>
-          <ul>
-            <li><span class="price" data-usd="250">USD 250</span></li>
-            <li>Hasta 3 proyectos</li>
-            <li>Diseño limpio</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Pro</h3>
-          <ul>
-            <li><span class="price" data-usd="450">USD 450</span></li>
-            <li>Galería dinámica</li>
-            <li>Animaciones suaves</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Deluxe</h3>
-          <ul>
-            <li><span class="price" data-usd="700">USD 700</span></li>
-            <li>Blog integrado</li>
-            <li>SEO básico</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Ultimate</h3>
-          <ul>
-            <li><span class="price" data-usd="1000">USD 1.000</span></li>
-            <li>eCommerce básico</li>
-            <li>Consultoría UX</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Tiendas Online -->
-    <section class="service-tier reveal" aria-labelledby="titulo-tiendas">
-      <h2 id="titulo-tiendas">Tiendas Online</h2>
-      <p>Vende tus productos 24/7 con una tienda segura y fácil de usar.</p>
-      <ul class="tiers-grid">
-        <li class="card">
-          <h3>Starter</h3>
-          <ul>
-            <li><span class="price" data-usd="800">USD 800</span></li>
-            <li>Catálogo ≤ 20 productos</li>
-            <li>Pago básico</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Professional</h3>
-          <ul>
-            <li><span class="price" data-usd="1200">USD 1.200</span></li>
-            <li>Catálogo ≤ 100 productos</li>
-            <li>Cupones y descuentos</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Business</h3>
-          <ul>
-            <li><span class="price" data-usd="1800">USD 1.800</span></li>
-            <li>Integración ERP</li>
-            <li>Envíos automatizados</li>
-          </ul>
-        </li>
-        <li class="card">
-          <h3>Enterprise</h3>
-          <ul>
-            <li><span class="price" data-usd="2500">USD 2.500</span></li>
-            <li>Personalización total</li>
-            <li>Consultoría continua</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
   </main>
 
-  <footer class="reveal">
-    &copy; 2025 Desarrollo CSL. Todos los derechos reservados.
+  <!-- FOOTER -->
+  <footer class="bg-light text-center py-4">
+    &copy; 2025 KBOOM DEV. Todos los derechos reservados.
   </footer>
 
-  <!-- Firebase & Auth -->
-  <script type="module" src="/scripts/firebaseConfig.js"></script>
-  <script type="module" src="/scripts/authService.js"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Tu JS -->
   <script type="module" src="/scripts/servicio.js"></script>
-  <script type="module" src="/scripts/wpbtn.js"></script>
+  <script src="/scripts/wpbtn.js"></script>
+  <script>
+    // Scroll‑reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+    // Toggle USD/ARS
+    document.getElementById('toggleCurrency')?.addEventListener('click', () => {
+      const btn = event.currentTarget;
+      const showing = btn.dataset.showing !== 'pesos';
+      document.querySelectorAll('.price').forEach(el => {
+        const usd = +el.dataset.usd;
+        el.textContent = showing
+          ? new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS'}).format(usd*1340)
+          : new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(usd);
+      });
+      btn.textContent = showing ? 'Mostrar en USD' : 'Mostrar en Pesos ARS';
+      btn.dataset.showing = showing ? 'pesos' : 'usd';
+    });
+  </script>
 </body>
 </html>

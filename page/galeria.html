@@ -3,59 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galería - Desarrollo CSL (Custom Systems Lopez)</title>
-  <link rel="stylesheet" href="/css/galeria.css"/>
+  <title>Galería - KbooM Dev</title>
+   <!-- Bootstrap CSS -->
+   <link
+   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+   rel="stylesheet"
+ />
+
+ <!-- Google Fonts -->
+ <link
+   href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+   rel="stylesheet"
+ />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Variables y estilos base de servicios.html -->
+  <style>
+    :root {
+      --brand-primary:   #FF7700;  /* naranja medio */
+      --brand-secondary: #CC6000;  /* naranja oscuro */
+      --body-bg:         #FFFFFF;  /* blanco */
+      --body-color:      #333333;  /* gris oscuro */
+      --card-bg:         #FFFFFF;  /* blanco */
+    }
+  
+    /* === Reset y body === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: white !important;
+      color: var(--body-color);
+      padding-top: 70px;
+    }
+  
+    /* === NAVBAR === */
+    .navbar {
+      background-color: var(--body-bg) !important;
+      height: 80px;
+      padding: 0;
+    }
+    .navbar-light .navbar-nav .nav-link {
+      color: var(--brand-primary) !important;
+      transition: color .3s;
+    }
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: var(--brand-secondary) !important;
+    }
+  
+    /* === HERO === */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+      color: #fff !important;
+      padding: 5rem 0;
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff !important;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      color: #fff!important;
+    }
+    .btn-hero {
+      background-color: #fff;
+      color: var(--brand-primary);
+      font-weight: 600;
+      border-radius: 50px;
+      padding: .75rem 1.5rem;
+      box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.384);
+      transition: background .3s, color .3s;
+    }
+    .btn-hero:hover {
+      background-color: #f1f1f1;
+      color: var(--brand-secondary);
+    }
+  
+    /* === SEPARADORES === */
+    .section-title {
+      color: var(--brand-primary);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--body-color);
+      margin-bottom: 2rem;
+    }
+  
+    /* === TARJETAS === */
+    .card {
+      background-color: var(--card-bg);
+      border: none;
+      border-radius: .5rem;
+      box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.801);
+      transition: transform .3s, box-shadow .3s;
+      width: 500px;
+      height: 250px;
+      
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.493);
+    }
+    .card h3 {
+      color: var(--brand-primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card .h4 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card ul li {
+      margin-bottom: .5rem;
+    }
+  
+    /* === SCROLL‑REVEAL === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .navbar-brand img{
+      height: 80px;
+    }
+    footer{
+      color: var(--body-color) !important;
+    }
+  
+  </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-  <header class="">
-    <a href="../index.html" class="logo-a">Desarrollo CSL</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../nosotros-img/logo.png" alt="logo" height="60">
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-controls="nav"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <nav id="mainNav">
-      <a href="../index.html">Inicio</a>
-      <a href="./servicios.html">Servicios</a>
-      <a href="./galeria.html" class="active">Galería</a>
-      <a href="/page/nosotros.html">Nosotros</a>
-    </nav>
-
-    <!-- <div class="auth-buttons" id="auth-buttons">
-      <a href="./login.html" class="cta">Iniciar sesión</a>
-      <a href="./register.html" class="cta">Registrarse</a>
+      <nav id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="../index.html" class="nav-link active">Inicio</a></li>
+          <li class="nav-item"><a href="/page/servicios.html" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="/page/galeria.html" class="nav-link">Galería</a></li>
+          <li class="nav-item"><a href="/page/nosotros.html" class="nav-link">Nosotros</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <div id="user-info" style="display:none; position:relative;">
-      <img id="user-photo" alt="Avatar usuario" class="avatar"/>
-      <ul id="user-menu" class="user-menu">
-        <li><a href="../dashboard.html">Gestionar proyectos</a></li>
-        <li><a href="../pagos.html">Pagos</a></li>
-        <li><a href="../mensajes.html">Mensajes</a></li>
-        <li><button id="logout-btn" class="logout-btn">Cerrar sesión</button></li>
-      </ul>
-    </div> -->
   </header>
 
-  <main>
-    <section class="galeria">
-      <h1>Galería de Proyectos</h1>
-      <p class="galeria-descripcion">Algunos ejemplos de sitios creados por nuestro equipo.</p>
-
-      <div class="galeria-grid">
-        <img src="../img/pizzeria.png" alt="Proyecto 1" >
-        <img src="../img/urban-style.png" alt="Proyecto 2">
-        <img src="../img/wiki-harry-potter.png" alt="Proyecto 3" >
-        <img src="/img/diseño reponsive nicosia.png" alt="Proyecto 4" >
+  <main class="flex-fill">
+    <section class="servicios-page py-5" id="servicios">
+      <div class="container">
+        <h1 class="section-title text-center">Galería de Proyectos</h1>
+        <p class="section-desc text-center">Algunos ejemplos de sitios creados por nuestro equipo.</p>
+    
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+          <div class="col">
+            <img src="../img/pizzeria.png" alt="Proyecto 1" class="img-fluid rounded">
+          </div>
+          <div class="col">
+            <img src="../img/urban-style.png" alt="Proyecto 2" class="img-fluid rounded">
+          </div>
+          <div class="col">
+            <img src="../img/wiki-harry-potter.png" alt="Proyecto 3" class="img-fluid rounded">
+          </div>
+          <div class="col">
+            <img src="../img/diseño reponsive nicosia.png" alt="Proyecto 4" class="img-fluid rounded">
+          </div>
+          <div class="col">
+            <img src="../img/css-grid.png" alt="Proyecto 4" class="img-fluid rounded">
+          </div>
+          <!-- Si agregas más imágenes, repite más <div class="col">…</div> -->
+        </div>
       </div>
     </section>
+    
   </main>
 
-  <footer>
-    &copy; 2025 Desarrollo CLS. Todos los derechos reservados.
+  <footer class="bg-light text-center py-4 mt-auto">
+    &copy; 2025 KBOOM DEV. Todos los derechos reservados.
   </footer>
 
   <script type="module" src="/scripts/galeria.js"></script>
