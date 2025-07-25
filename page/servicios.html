@@ -132,7 +132,26 @@
   .navbar-brand img{
     height: 80px;
   }
+  .navbar-nav {
+    background-color: white !important;
+    border-radius: 5px;
+    text-align: center;
+    
+  }
+  .navbar-nav a{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.411);
+  }
 
+  @media (min-width: 600px) {
+.navbar-nav {
+  background-color: white !important;
+  
+  
+}
+.navbar-nav a{
+border-bottom: none;
+}
+}
   </style>
 </head>
 <body>
@@ -176,15 +195,15 @@
       <div class="container">
         <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
         <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <!-- Básico -->
           <div class="col">
             <div class="card h-100">
               <div class="card-body text-center">
-                <h3>Básico</h3>
-                <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
+                <h3>Básico - Landing Page</h3>
+                <p class="h4"><span class="price" data-usd="200">USD 200</span></p>
                 <ul class="list-unstyled text-start">
-                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
+                  <li><strong>1 páginas responsive</strong> con tu identidad visual.</li>
                   <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
                   <li><strong>Setup de hosting & dominio</strong> incluido.</li>
                 </ul>
@@ -196,7 +215,7 @@
             <div class="card h-100">
               <div class="card-body text-center">
                 <h3>Profesional</h3>
-                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
+                <p class="h4"><span class="price" data-usd="380">USD 380</span></p>
                 <ul class="list-unstyled text-start">
                   <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
                   <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
@@ -210,7 +229,7 @@
             <div class="card h-100">
               <div class="card-body text-center">
                 <h3>Avanzado</h3>
-                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
+                <p class="h4"><span class="price" data-usd="800">USD 800</span></p>
                 <ul class="list-unstyled text-start">
                   <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
                   <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
@@ -219,106 +238,93 @@
               </div>
             </div>
           </div>
-          <!-- Premium -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Premium</h3>
-                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
-                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
-                  <li><strong>Soporte 1 mes</strong> incluido.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
 
     <!-- Diseño de Sitios Web -->
-    <section class="py-5 reveal" aria-labelledby="titulo-web">
-      <div class="container">
-        <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
-        <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-          <!-- Básico -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Básico</h3>
-                <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
-                  <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
-                  <li><strong>Setup de hosting & dominio</strong> incluido.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Profesional -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Profesional</h3>
-                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
-                  <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
-                  <li><strong>SEO básico</strong> (meta tags y velocidad).</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Avanzado -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Avanzado</h3>
-                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
-                  <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
-                  <li><strong>Integración con Analytics</strong> para medir tu tráfico.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- Premium -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Premium</h3>
-                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
-                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
-                  <li><strong>Soporte 1 mes</strong> incluido.</li>
-                </ul>
-              </div>
-            </div>
+    <!-- QA Automation Tester – Planes de Servicio -->
+<section class="py-5 reveal" aria-labelledby="titulo-qa">
+  <div class="container">
+    <h2 id="titulo-qa" class="section-title text-center">QA Automation Tester</h2>
+    <p class="section-desc text-center">Automatizamos tus pruebas funcionales, de API y performance para garantizar calidad continua.</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <!-- Plan Básico -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Básico</h3>
+            <p class="h4"><span class="price" data-usd="150">USD 150</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>1 suite automatizada</strong> de pruebas funcionales (hasta 5 casos).</li>
+              <li><strong>1 ciclo de pruebas API</strong> con Postman & Newman.</li>
+              <li><strong>Entrega</strong> en 3 días hábiles.</li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+      
+      <!-- Plan Intermedio -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Intermedio</h3>
+            <p class="h4"><span class="price" data-usd="350">USD 350</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Hasta 20 test cases</strong> (Selenium / Cypress / Appium).</li>
+              <li><strong>Pruebas de API REST</strong> con reporte y documentación.</li>
+              <li><strong>Prueba de carga básica</strong> con JMeter.</li>
+              <li><strong>2 reuniones</strong> de seguimiento.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Plan Avanzado -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Avanzado</h3>
+            <p class="h4"><span class="price" data-usd="800">USD 800+</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Framework completo</strong> de testing automatizado.</li>
+              <li><strong>Testing móvil, web, API & performance</strong> integrado.</li>
+              <li><strong>Pipeline CI/CD</strong> (Jenkins / GitHub Actions / GitLab CI).</li>
+              <li><strong>Mantenimiento mensual</strong> y soporte continuo.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
     <!-- Diseño de Sitios Web -->
     <section class="py-5 reveal" aria-labelledby="titulo-web">
       <div class="container">
-        <h2 id="titulo-web" class="section-title text-center">Diseño de Sitios Web</h2>
+        <h2 id="titulo-web" class="section-title text-center">Planes Publicidad Digital</h2>
         <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           <!-- Básico -->
           <div class="col">
             <div class="card h-100">
               <div class="card-body text-center">
-                <h3>Básico</h3>
+                <h3>Visibilidad & Tráfico</h3>
                 <p class="h4"><span class="price" data-usd="300">USD 300</span></p>
                 <ul class="list-unstyled text-start">
-                  <li><strong>1–2 páginas responsive</strong> con tu identidad visual.</li>
-                  <li><strong>Formulario de contacto</strong> integrado y funcional.</li>
-                  <li><strong>Setup de hosting & dominio</strong> incluido.</li>
+                  <li><strong>Plataformas:</strong> Facebook & Instagram Ads.</li>
+                  <li><strong>Duración: </strong> 1 mes.</li>
+                  <li><strong>Incluye:</strong><ul>
+                    <li> Segmentación básica (edad, ubicación, intereses)</li>
+                    <li>2 creatividades estáticas + 1 video 15″</li>
+                    <li>Campañas de alcance y tráfico</li>
+                    <li>Optimización semanal</li>
+                    <li>Informe final (impresiones, clics, CTR, CPC)</li>
+                  </ul></li>
                 </ul>
               </div>
             </div>
@@ -327,47 +333,103 @@
           <div class="col">
             <div class="card h-100">
               <div class="card-body text-center">
-                <h3>Profesional</h3>
-                <p class="h4"><span class="price" data-usd="600">USD 600</span></p>
+                <h3>Crecimiento</h3>
+                <p class="h4">USD 91 – 114</p>
                 <ul class="list-unstyled text-start">
-                  <li><strong>Hasta 5 secciones</strong> (Home, Servicios, Blog, Contacto y más).</li>
-                  <li><strong>CMS ligero</strong> para editar sin tocar código.</li>
-                  <li><strong>SEO básico</strong> (meta tags y velocidad).</li>
+                  <li><strong>Públicos “look‑alike”</strong> y <strong>keywords de alta intención</strong>.</li>
+                  <li><strong>Carruseles</strong> (3–5 slides) + <strong>video testimonial</strong> 30″.</li>
+                  <li><strong>Campañas</strong> de generación de leads y búsqueda.</li>
+                  <li><strong>A/B testing</strong> quincenal.</li>
+                  <li><strong>Informe quincenal</strong> (CPL, tasa de conversión, ROI).</li>
                 </ul>
               </div>
             </div>
           </div>
+          
           <!-- Avanzado -->
           <div class="col">
             <div class="card h-100">
               <div class="card-body text-center">
-                <h3>Avanzado</h3>
-                <p class="h4"><span class="price" data-usd="1000">USD 1.000</span></p>
+                <h3>Dominio</h3>
+                <p class="h4"><span class="price" data-usd="189">USD 189 – 227</span></p>
                 <ul class="list-unstyled text-start">
-                  <li><strong>Secciones dinámicas</strong> (portafolio, testimonios, blog).</li>
-                  <li><strong>Micro‑interacciones y animaciones</strong> para mejorar la UX.</li>
-                  <li><strong>Integración con Analytics</strong> para medir tu tráfico.</li>
+                  <li><strong>Funnel completo</strong> (Awareness→Conversión→Fidelización).</li>
+                  <li><strong>Videos</strong> 15″, animaciones GIF/HTML5.</li>
+                  <li><strong>Shopping Ads</strong> y remarketing dinámico.</li>
+                  <li><strong>Monitoreo diario</strong> y puja automática.</li>
+                  <li><strong>Dashboard mensual</strong> + reunión de estrategia.</li>
                 </ul>
               </div>
             </div>
           </div>
-          <!-- Premium -->
-          <div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h3>Premium</h3>
-                <p class="h4"><span class="price" data-usd="1500">USD 1.500</span></p>
-                <ul class="list-unstyled text-start">
-                  <li><strong>Tienda online completa</strong> con carrito y pagos.</li>
-                  <li><strong>SEO avanzado</strong> y posicionamiento.</li>
-                  <li><strong>Soporte 1 mes</strong> incluido.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+
+          
+          
+         
         </div>
       </div>
     </section>
+
+    <!-- Desarrollo de Aplicaciones WEB -->
+<section class="py-5 reveal" aria-labelledby="titulo-web">
+  <div class="container">
+    <h2 id="titulo-web" class="section-title text-center">Desarrollo Aplicaciones WEB</h2>
+    <p class="section-desc text-center">Creamos portales atractivos, rápidos y optimizados para convertir visitantes en clientes.</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+      <!-- Esencial -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Esencial</h3>
+            <p class="h4"><span class="price" data-usd="75.8–113.6">USD 76 – 114</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Sitio estático responsive</strong> (5–7 secciones).</li>
+              <li><strong>Diseño personalizado</strong> + optimización móvil.</li>
+              <li><strong>Hosting compartido</strong> + configuración de dominio.</li>
+              <li><strong>Soporte básico</strong> (1 mes).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profesional -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Profesional</h3>
+            <p class="h4"><span class="price" data-usd="189.4–340.9">USD 189 – 341</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Web dinámica con CMS</strong> (WordPress/Strapi).</li>
+              <li><strong>Panel de administración</strong> para contenido.</li>
+              <li><strong>Integración de API</strong> (formularios, pagos).</li>
+              <li><strong>VPS + SSL + Backups</strong> semanales.</li>
+              <li><strong>Mantenimiento</strong> (3 meses).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Élite -->
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <h3>Élite</h3>
+            <p class="h4"><span class="price" data-usd="454.5–909.1">USD 455 – 909</span></p>
+            <ul class="list-unstyled text-start">
+              <li><strong>Plataforma a medida</strong> (React/Vue + Node/Django).</li>
+              <li><strong>Integraciones avanzadas</strong> (ERP, CRM).</li>
+              <li><strong>Roles y notificaciones</strong> con autenticación.</li>
+              <li><strong>Nube + CI/CD</strong> (AWS/GCP).</li>
+              <li><strong>Soporte 24×7</strong> & mantenimiento (6 meses).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
 
     <!-- (Resto de secciones mantienen la misma estructura de tarjetas) -->
 

@@ -22,6 +22,7 @@ body {
 .navbar-dark .navbar-nav .nav-link.active {
   color: var(--bs-secondary) !important;
 }
+
 /* Cards en crema suave */
 .card {
   background-color: var(--bs-primary)!important;
@@ -37,4 +38,14 @@ body {
   background-color: var(--bs-secondary) !important;
   border-color:   var(--bs-secondary) !important;
   color: #000;
+}
+
+.navbar-nav {
+  background-color: white !important;
+  border-radius: 5px;
+  text-align: center;
+  
+}
+.navbar-nav a{
+border-bottom: 1px solid rgba(0, 0, 0, 0.411);
 }

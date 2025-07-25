@@ -4,36 +4,7 @@ import { onUserChanged, logout } from './authService.js';
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn     = document.getElementById('menuToggle');
   const nav         = document.getElementById('mainNav');
-  // const authButtons = document.getElementById('auth-buttons');
-  // const userInfo    = document.getElementById('user-info');
-  // const userPhoto   = document.getElementById('user-photo');
-  // const userMenu    = document.getElementById('user-menu');
-  // const btnLogout   = document.getElementById('logout-btn');
 
-  // 1) Autenticación
-  // onUserChanged(user => {
-  //   if (user) {
-  //     authButtons.style.display = 'none';
-  //     userPhoto.src = user.photoURL || '/images/avatar-default.png';
-  //     userInfo.style.display = 'flex';
-  //   } else {
-  //     userInfo.style.display    = 'none';
-  //     authButtons.style.display = 'flex';
-  //   }
-  // });
-
-  // 2) Logout
-  // btnLogout.addEventListener('click', async () => {
-  //   try { await logout(); }
-  //   catch (err) { console.error(err); }
-  // });
-
-  // 3) Dropdown avatar
-  // userPhoto.addEventListener('click', e => { e.stopPropagation(); userMenu.classList.toggle('open'); });
-  // document.addEventListener('click', () => userMenu.classList.remove('open'));
-  // userMenu.addEventListener('click', e => e.stopPropagation());
-
-  // 4) Toggle hamburguesa
   menuBtn.addEventListener('click', () => {
     nav.classList.toggle('active');
     menuBtn.classList.toggle('active');
