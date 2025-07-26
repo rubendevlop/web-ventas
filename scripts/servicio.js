@@ -50,15 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // --- 3) NOTA: Si ya usas Bootstrap para el navbar, no necesitas
-  //      manejar manualmente el menú hamburguesa en JS ---
-  //
-  // Si quisiera mantenerlo, deberías hacerlo así (y quitar data-bs-toggle):
-  // const menuBtn = document.getElementById('menuToggle');
-  // const nav     = document.getElementById('mainNav');
-  // menuBtn.addEventListener('click', () => {
-  //   nav.classList.toggle('show');
-  // });
+
     // Scroll‑reveal
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
