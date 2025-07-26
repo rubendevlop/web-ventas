@@ -115,6 +115,10 @@
 .navbar-brand img{
   height: 80px;
 }
+footer{
+  color: var(--body-color) !important;
+}
+
 
 .navbar-nav {
   background-color: white !important;
@@ -123,20 +127,15 @@
   
 }
 .navbar-nav a{
-border-bottom: 1px solid rgba(0, 0, 0, 0.411) !important;
+border-bottom: 1px solid rgba(0, 0, 0, 0.411);
 }
-footer{
-  color: var(--body-color) !important;
-}
-
 
 @media (min-width: 600px) {
-  .navbar-nav {
-    background-color: white !important;
-    
-    
-  }
-  .navbar-nav a{
-  border-bottom: none;
-  }
-  }
+.navbar-nav {
+background-color: white !important;
+
+
+}
+.navbar-nav a{
+border-bottom: none;
+}
