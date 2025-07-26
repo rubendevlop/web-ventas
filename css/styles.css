@@ -243,7 +243,7 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.411);
   color: var(--color-hero-end);
 }
 
-.btn{
+.btn-primary{
   background-color: var(--brand-primary) !important;
 }
 
