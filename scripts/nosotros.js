@@ -1,9 +1,8 @@
 // nosotros.js
-import { onUserChanged, logout } from './authService.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn     = document.getElementById('menuToggle');
-  const nav         = document.getElementById('mainNav');
+
 
   menuBtn.addEventListener('click', () => {
     nav.classList.toggle('active');
@@ -25,14 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
- // Scroll‑reveal
- const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Scroll‑reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 
+  placeAuthButtons();
+  window.addEventListener('resize', placeAuthButtons);
 
 
 });
-       
+      
