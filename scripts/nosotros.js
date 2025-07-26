@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+
   // 6) Scroll‑reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -31,17 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal, .card, .timeline-list li').forEach(el => observer.observe(el));
 
-  // 7) Mover auth-buttons en móvil/desktop
-  // function placeAuthButtons() {
-  //   const header = document.querySelector('header');
-  //   if (window.innerWidth < 600) {
-  //     if (!nav.contains(authButtons)) nav.appendChild(authButtons);
-  //   } else {
-  //     if (!header.contains(authButtons)) header.insertBefore(authButtons, userInfo);
-  //     nav.classList.remove('active');
-  //     menuBtn.classList.remove('active');
-  //   }
-  // }
+
   placeAuthButtons();
   window.addEventListener('resize', placeAuthButtons);
+
+
 });
+       // Scroll‑reveal
+       const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));

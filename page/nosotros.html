@@ -18,93 +18,7 @@
   />
 
   <!-- Variables y estilos base de servicios.html -->
-  <style>
-    :root {
-      --brand-primary:   #FF7700;
-      --brand-secondary: #CC6000;
-      --body-bg:         #FFFFFF;
-      --body-color:      #333333;
-      --card-bg:         #FFFFFF;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--body-bg) !important;
-      color: var(--body-color);
-      padding-top: 80px;
-    }
-    .navbar {
-      background-color: var(--body-bg) !important;
-      height: 80px;
-      padding: 0;
-    }
-    .navbar-light .navbar-nav .nav-link {
-      color: var(--brand-primary) !important;
-      transition: color .3s;
-    }
-    .navbar-light .navbar-nav .nav-link:hover,
-    .navbar-light .navbar-nav .nav-link.active {
-      color: var(--brand-secondary) !important;
-    }
-    .section-title {
-      color: var(--brand-primary);
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .section-desc {
-      color: var(--body-color);
-      margin-bottom: 2rem;
-    }
-    /* Estilo para sección Quién soy */
-    .intro-section {
-      background-color: #f8f9fa;
-      border-radius: .5rem;
-      padding: 2rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .intro-section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    /* Estilo para Valores */
-    .values-section .card {
-      background-color: #fff;
-      border: none;
-      border-radius: .5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .values-section .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-    .values-section .card-title {
-      color: var(--brand-primary);
-      font-weight: 600;
-      margin-bottom: .5rem;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .6s ease-out, transform .6s ease-out;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-    footer {
-      color: var(--body-color) !important;
-    }
-    .navbar-brand img {
-      height: 60px;
-    }
-    .sobre-mi .card{
-      box-shadow: 2px 15px 15px rgba(0,0,0,0.15);
-    }
-  </style>
+<link rel="stylesheet" href="../css/nosotros.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -221,16 +135,8 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   <!-- JS personalizados -->
-  <script type="module" src="/scripts/firebaseConfig.js"></script>
-  <script type="module" src="/scripts/authService.js"></script>
   <script type="module" src="/scripts/nosotros.js"></script>
   <script src="/scripts/wpbtn.js"></script>
-  <script>
-    // Scroll‑reveal
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  </script>
+
 </body>
 </html>
