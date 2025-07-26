@@ -39,8 +39,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
-       // Scroll‑reveal
-       const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+       
