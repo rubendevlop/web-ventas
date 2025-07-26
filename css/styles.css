@@ -244,7 +244,7 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.411);
 }
 
 .btn-primary{
-  background-color: var(--brand-primary);
+  background-color: var(--brand-primary) !important;
 }
 
 /* === FOOTER === */
