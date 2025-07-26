@@ -32,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 
-  placeAuthButtons();
-  window.addEventListener('resize', placeAuthButtons);
 
 
 });
