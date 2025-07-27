@@ -243,7 +243,7 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.411);
   color: var(--color-hero-end);
 }
 
-.btn-primary{
+.btn-mas{
   background-color: white;
   color: var(--color-primary) !important;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.493);
