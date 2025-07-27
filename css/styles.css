@@ -249,6 +249,12 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.411);
   font-weight: bold;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.493) !important;
 }
+.btn-mas:hover{
+  background-color: rgb(230, 229, 229);
+  color: var(--color-primary-dark) !important;
+
+}
+
 
 /* === FOOTER === */
 
