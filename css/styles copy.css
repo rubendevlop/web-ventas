@@ -8,12 +8,107 @@
   --color-hero-end: #FFB270;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: var(--body-bg);
+  background-color: #ffffff !important; /* fondo negro */
   color: var(--body-color);
-  margin-top: 80px;
+  margin-top: var(--header-height);
+  min-height: 100vh;
 }
+
+/* === NAVBAR === */
+header.navbar {
+  color:  var(--color-primary) !important;
+}
+.navbar {
+  background-color: var(--body-bg) !important;
+  height: 80px;
+  padding: 0;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: var(--brand-primary) !important;
+  transition: color .3s;
+}
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+  color: var(--brand-secondary) !important;
+}
+.navbar-brand img {
+  height: 80px;
+}
+
+/* === BOTÓN HAMBURGUESA === */
+.navbar-toggler.menu-toggle {
+  margin-left: auto;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 36px;
+  height: 26px;
+  background-color: white !important;
+  padding: 4px !important;
+  border: none !important;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.navbar-toggler.menu-toggle span {
+  display: block;
+  height: 4px;
+  background: var(--color-text-light) !important;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.navbar-toggler.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.navbar-toggler.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggler.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* === MENÚ MOBILE === */
+#nav.collapse {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0; right: 0;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  z-index: 998;
+}
+#nav.collapse.show {
+  display: flex;
+}
+#nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+#nav a.active {
+  background: var(--color-text-light);
+  color: var(--color-primary);
+}
+.navbar-nav {
+  background-color: white !important;
+  border-radius: 5px;
+  text-align: center;
+  
+}
+.navbar-nav a{
+border-bottom: 1px solid rgba(0, 0, 0, 0.411);
+}
+
 
 /* === HERO === */
 .hero {
@@ -21,9 +116,6 @@ body {
   color: white;
   padding: 5rem 0;
 }
-
-
-
 .hero .container {
   overflow: hidden; /* Evita que los elementos se desborden mientras se animan */
 }
