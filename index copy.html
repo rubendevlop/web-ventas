@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - KbooM Dev</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles copy.css?v=3">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">
+        <img src="../nosotros-img/logo.png" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav id="mainNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="/index.html" class="nav-link active">Inicio</a></li>
+          <li class="nav-item"><a href="/page/servicios.html" class="nav-link">Servicios</a></li>
+          <li class="nav-item"><a href="/page/galeria.html" class="nav-link">Galería</a></li>
+          <li class="nav-item"><a href="/page/nosotros.html" class="nav-link">Nosotros</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero text-center" id="inicio">
+  <div class="container">
+    <h1 class="animado-desde-izq">Potenciá tu presencia online</h1>
+    <p class="animado-desde-der">Diseñamos y desarrollamos sitios web a medida para tu negocio o emprendimiento.</p>
+  </div>
+</section>
+
+  <!-- SERVICIOS - CARRUSEL 3D -->
+  <section class="py-5" id="servicios">
+    <div class="container position-relative">
+      <h2 class="text-center mb-3">Servicios Personalizados</h2>
+      <p class="text-center mb-4">Descubre cómo podemos elevar tu marca en línea</p>
+
+      <div class="carrusel-wrapper d-flex justify-content-center align-items-center">
+        <div id="carrusel3D" class="carrusel-3d d-flex"></div>
+
+        <button id="btn-prev" class="carousel-control-prev" type="button">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button id="btn-next" class="carousel-control-next" type="button">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="hero py-5 bg-light" id="contacto">
+    <div class="container text-center overflow-hidden">
+      <h2 class="anim-izq">¿Querés una web para tu negocio?</h2>
+      <p class="anim-der">¡Contactanos por WhatsApp!</p>
+      <a href="https://wa.me/543815624585" target="_blank" class="btn btn-success anim-izq">
+        📞 +54 381 562-4585 – Escribinos
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-light text-center py-4">
+    &copy; 2025 KBOOM DEV. Todos los derechos reservados.
+  </footer>
+
+  <!-- JS + Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./scripts/index copy.js"></script>
+</body>
+</html>

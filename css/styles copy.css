@@ -1,0 +1,346 @@
+:root {
+  --brand-primary: #FF7700;
+  --brand-secondary: #CC6000;
+  --body-bg: #FFFFFF;
+  --body-color: #333;
+  --card-bg: #FFFFFF;
+  --color-text-light: #FFFFFF;
+  --color-hero-end: #FFB270;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--body-bg);
+  color: var(--body-color);
+  margin-top: 80px;
+}
+
+/* === HERO === */
+.hero {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  color: white;
+  padding: 5rem 0;
+}
+
+
+
+.hero .container {
+  overflow: hidden; /* Evita que los elementos se desborden mientras se animan */
+}
+
+/* Estado inicial de los elementos animados */
+.animado-desde-izq,
+.animado-desde-der {
+  opacity: 0;
+  position: relative;
+}
+
+/* Posiciones iniciales fuera de la pantalla */
+.animado-desde-izq {
+  left: -100vw; /* Fuera hacia la izquierda */
+}
+
+.animado-desde-der {
+  left: 100vw; /* Fuera hacia la derecha */
+}
+
+/* Animación hacia el centro */
+.animado-desde-izq.activo,
+.animado-desde-der.activo {
+  opacity: 1;
+  left: 0;
+  transition: left 1.2s ease, opacity 1.2s ease;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* animacion contacto */
+
+.anim-izq,
+.anim-der {
+  opacity: 0;
+  position: relative;
+}
+
+.anim-izq {
+  left: -100vw;
+}
+
+.anim-der {
+  left: 100vw;
+}
+
+.anim-izq.activo,
+.anim-der.activo {
+  opacity: 1;
+  left: 0;
+  transition: all 3s ease;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: white !important;
+  height: 80px;
+}
+.navbar-nav .nav-link {
+  color: var(--brand-primary) !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--brand-secondary) !important;
+}
+.navbar-brand img {
+  height: 80px;
+}
+
+/* === CARRUSEL 3D === */
+.carrusel-3d {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  perspective: 1200px;
+  min-height: 300px;
+  position: relative;
+}
+
+.card-3d {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 5px 10px 12px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding: 1rem;
+  width: 250px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0.5;
+  transform: scale(0.8) rotateY(20deg);
+  position: absolute;
+}
+
+.card-3d.active {
+  transform: scale(1) rotateY(0deg);
+  opacity: 1;
+  z-index: 3;
+  position: relative;
+}
+
+.card-3d.left {
+  transform: scale(0.85) rotateY(40deg) translateX(-150%);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.card-3d.right {
+  transform: scale(0.85) rotateY(-40deg) translateX(150%);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.card-3d.prev-out {
+  transform: translateX(-300%) scale(0.5);
+  opacity: 0;
+  z-index: 0;
+}
+
+.card-3d.next-out {
+  transform: translateX(300%) scale(0.5);
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Aparecer desde derecha (nueva tarjeta .right) */
+.card-3d.aparecer-derecha {
+  animation: animarDesdeDerecha 0.8s ease forwards;
+}
+
+/* Aparecer desde izquierda (nueva tarjeta .left) */
+.card-3d.aparecer-izquierda {
+  animation: animarDesdeIzquierda 0.8s ease forwards;
+}
+
+@keyframes animarDesdeDerecha {
+  from {
+    transform: scale(0.85) translateX(-300%) rotateY(-40deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(0.85) translateX(150%) rotateY(-40deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes animarDesdeIzquierda {
+  from {
+    transform: scale(0.85) translateX(300%) rotateY(40deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(0.85) translateX(-150%) rotateY(40deg);
+    opacity: 0.7;
+  }
+}
+
+/* Oculta y prepara para aparición suave */
+.card-3d.hidden {
+  opacity: 0;
+  transform: scale(0.7);
+}
+
+/* === CARD INTERNA === */
+.card-servicio .card-title {
+  color: var(--brand-primary);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.card-servicio .card-text {
+  font-size: 0.95rem;
+}
+
+/* === BOTONES DE CARRUSEL === */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  top: 40%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--brand-primary);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* === CONTACTO === */
+
+
+/* === FOOTER === */
+footer {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* === RESPONSIVE === */
+/* === MEJORAS RESPONSIVE === */
+
+/* TABLET (768px - 992px) */
+@media (max-width: 992px) {
+  /* Navbar */
+  .navbar-brand img {
+    height: 60px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Carrusel 3D */
+  .carrusel-3d {
+    min-height: 350px;
+  }
+  .card-3d {
+    width: 220px;
+    height: 300px;
+    padding: 0.8rem;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 45%;
+    width: 8%;
+  }
+
+  /* Contacto */
+  #contacto h2 {
+    font-size: 1.8rem;
+  }
+  #contacto p {
+    font-size: 1rem;
+  }
+}
+
+/* CELULARES (hasta 767px) */
+@media (max-width: 767px) {
+  body {
+    margin-top: 60px;
+  }
+
+  /* Navbar */
+  .navbar-brand img {
+    height: 50px;
+  }
+  .navbar {
+    height: 60px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 3rem 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  /* Carrusel 3D (más simple para móvil) */
+  
+  .card-3d {
+    
+    opacity: 1 !important;
+    width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+
+  
+
+  /* Contacto */
+  #contacto h2 {
+    font-size: 1.5rem;
+  }
+  #contacto p {
+    font-size: 0.9rem;
+  }
+  #contacto .btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+.card-3d.right-entrando {
+  transform: scale(0.85) translateX(300%) rotateY(-40deg);
+  opacity: 0;
+}
+.card-3d.left-entrando {
+  transform: scale(0.85) translateX(-300%) rotateY(40deg);
+  opacity: 0;
+}
+
+.card-title{
+  border-bottom: 3px solid coral;
+}
+.card-text{
+  text-align:start;
+  margin-top: 15px;
+}
+
+
