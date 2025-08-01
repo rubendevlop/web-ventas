@@ -272,6 +272,7 @@ footer {
 @media (max-width: 767px) {
   body {
     margin-top: 60px;
+    width: 100vw !important;
   }
 
   /* Navbar */
