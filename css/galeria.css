@@ -148,3 +148,52 @@ background-color: white !important;
 border-bottom: none;
 }
 }
+
+/* Animación desde la izquierda */
+@keyframes entrar-desde-izquierda {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Clase para aplicar la animación */
+.animado-desde-izq-2 {
+  opacity: 0;
+  animation: entrar-desde-izquierda 3s ease-out forwards;
+}
+
+.animado-desde-arriba {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animado-desde-arriba-2 {
+  opacity: 0;
+  transform: translateY(-120px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba-2.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animado-desde-arriba-3 {
+  opacity: 0;
+  transform: translateY(-120px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba-3.activo {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -70,13 +70,16 @@ body {
 }
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .6s ease-out, transform .6s ease-out;
+  transform: translateY(100px);
+  transition: opacity 2s ease-out, transform 2s ease-out;
+  will-change: opacity, transform;
 }
+
 .reveal.visible {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
+
 footer {
   color: var(--body-color) !important;
 }
@@ -116,4 +119,41 @@ background-color: white !important;
 .navbar-nav a{
 border-bottom: none;
 }
+}
+
+/* Clase para aplicar la animación */
+.animado-desde-izq-2 {
+  opacity: 0;
+  animation: entrar-desde-izquierda 3s ease-out forwards;
+}
+
+.animado-desde-arriba {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animado-desde-arriba-2 {
+  opacity: 0;
+  transform: translateY(-120px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba-2.activo {
+  opacity: 1;
+  transform: translateY(0);
+}
+.animado-desde-arriba-3 {
+  opacity: 0;
+  transform: translateY(-120px);
+  transition: transform 2s ease, opacity 1.2s ease;
+}
+
+.animado-desde-arriba-3.activo {
+  opacity: 1;
+  transform: translateY(0);
 }

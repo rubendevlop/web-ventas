@@ -486,12 +486,20 @@ footer {
   text-align:start;
   margin-top: 15px;
 }
-.animado-desde-izq-2 {
-  left: -100vw; /* Fuera hacia la izquierda */
+/* Animación desde la izquierda */
+@keyframes entrar-desde-izquierda {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.animado-desde-izq-2{
-  opacity: 1;
-  left: 0;
-  transition: left 1.2s ease, opacity 1.2s ease;
+/* Clase para aplicar la animación */
+.animado-desde-izq-2 {
+  opacity: 0;
+  animation: entrar-desde-izquierda 3s ease-out forwards;
 }

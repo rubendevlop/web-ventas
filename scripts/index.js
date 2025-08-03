@@ -150,4 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => elementoDer.classList.add('activo'), 800);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const seccion = document.querySelector("#servicios");
+  seccion.classList.add("animado-desde-izq-2");
+});
+
 
