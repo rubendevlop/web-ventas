@@ -16,12 +16,19 @@
 
   --header-height: 64px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
 
+/* === RESET Y ESTRUCTURA GENERAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #ffffff !important; /* fondo negro */
+  background-color: #ffffff !important;
   color: var(--body-color);
   margin-top: var(--header-height);
   min-height: 100vh;
@@ -32,16 +39,19 @@ header.navbar {
   color:  var(--color-primary) !important;
 }
 .navbar {
-  background-color: var(--body-bg) !important;
+  background-color: white !important;
   height: 80px;
   padding: 0;
 }
-.navbar-light .navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link,
+.navbar-nav .nav-link {
   color: var(--brand-primary) !important;
   transition: color .3s;
 }
 .navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
   color: var(--brand-secondary) !important;
 }
 .navbar-brand img {
@@ -107,16 +117,6 @@ header.navbar {
   background: var(--color-text-light);
   color: var(--color-primary);
 }
-.navbar-nav {
-  background-color: white !important;
-  border-radius: 5px;
-  text-align: center;
-  
-}
-.navbar-nav a{
-border-bottom: none;
-}
-
 
 /* === HERO === */
 .hero {
@@ -125,32 +125,7 @@ border-bottom: none;
   padding: 5rem 0;
 }
 .hero .container {
-  overflow: hidden; /* Evita que los elementos se desborden mientras se animan */
-}
-
-/* Estado inicial de los elementos animados */
-.animado-desde-izq,
-.animado-desde-der {
-  opacity: 0;
-  position: relative;
-}
-
-/* Posiciones iniciales fuera de la pantalla */
-.animado-desde-izq {
-  left: -100vw; /* Fuera hacia la izquierda */
-}
-
-
-.animado-desde-der {
-  left: 100vw; /* Fuera hacia la derecha */
-}
-
-/* Animación hacia el centro */
-.animado-desde-izq.activo,
-.animado-desde-der.activo, .animado-desde-izq-2{
-  opacity: 1;
-  left: 0;
-  transition: left 1.2s ease, opacity 1.2s ease;
+  overflow: hidden;
 }
 .hero h1 {
   font-size: 3rem;
@@ -161,74 +136,51 @@ border-bottom: none;
   margin-bottom: 1.5rem;
 }
 
-/* animacion contacto */
-
+/* === ANIMACIONES HERO / CONTACTO === */
+.animado-desde-izq,
+.animado-desde-der,
 .anim-izq,
 .anim-der {
   opacity: 0;
   position: relative;
 }
-
-.anim-izq {
-  left: -100vw;
-}
-
-.anim-der {
-  left: 100vw;
-}
-
+.animado-desde-izq { left: -100vw; }
+.animado-desde-der { left: 100vw; }
+.anim-izq { left: -100vw; }
+.anim-der { left: 100vw; }
+.animado-desde-izq.activo,
+.animado-desde-der.activo,
+.animado-desde-izq-2,
 .anim-izq.activo,
 .anim-der.activo {
   opacity: 1;
   left: 0;
-  transition: all 3s ease;
+  transition: left 1.2s ease, opacity 1.2s ease;
 }
 
-.animado-desde-arriba {
+/* === NAVBAR-NAV y ESTILOS DE LINKS === */
+.navbar-nav {
+  background-color: white !important;
+  border-radius: 5px;
+  text-align: center;
+}
+.navbar-nav a {
+  border-bottom: none;
+}
+
+/* === ANIMACIONES DE ENTRADA === */
+.animado-desde-arriba,
+.animado-desde-arriba-2,
+.animado-desde-arriba-3 {
   opacity: 0;
   transform: translateY(-100px);
   transition: transform 2s ease, opacity 1.2s ease;
 }
-
-.animado-desde-arriba.activo {
-  opacity: 1;
-  transform: translateY(0);
-}
-.animado-desde-arriba-2 {
-  opacity: 0;
-  transform: translateY(-120px);
-  transition: transform 2s ease, opacity 1.2s ease;
-}
-
-.animado-desde-arriba-2.activo {
-  opacity: 1;
-  transform: translateY(0);
-}
-.animado-desde-arriba-3 {
-  opacity: 0;
-  transform: translateY(-120px);
-  transition: transform 2s ease, opacity 1.2s ease;
-}
-
+.animado-desde-arriba.activo,
+.animado-desde-arriba-2.activo,
 .animado-desde-arriba-3.activo {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* === NAVBAR === */
-.navbar {
-  background-color: white !important;
-  height: 80px;
-}
-.navbar-nav .nav-link {
-  color: var(--brand-primary) !important;
-}
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: var(--brand-secondary) !important;
-}
-.navbar-brand img {
-  height: 80px;
 }
 
 /* === CARRUSEL 3D === */
@@ -241,7 +193,6 @@ border-bottom: none;
   min-height: 300px;
   position: relative;
 }
-
 .card-3d {
   background-color: var(--card-bg);
   border-radius: 12px;
@@ -256,48 +207,38 @@ border-bottom: none;
   transform: scale(0.8) rotateY(20deg);
   position: absolute;
 }
-
 .card-3d.active {
   transform: scale(1) rotateY(0deg);
   opacity: 1;
   z-index: 3;
   position: relative;
 }
-
 .card-3d.left {
   transform: scale(0.85) rotateY(40deg) translateX(-150%);
   opacity: 0.7;
   z-index: 1;
 }
-
 .card-3d.right {
   transform: scale(0.85) rotateY(-40deg) translateX(150%);
   opacity: 0.7;
   z-index: 1;
 }
-
 .card-3d.prev-out {
   transform: translateX(-300%) scale(0.5);
   opacity: 0;
   z-index: 0;
 }
-
 .card-3d.next-out {
   transform: translateX(300%) scale(0.5);
   opacity: 0;
   z-index: 0;
 }
-
-/* Aparecer desde derecha (nueva tarjeta .right) */
 .card-3d.aparecer-derecha {
   animation: animarDesdeDerecha 0.8s ease forwards;
 }
-
-/* Aparecer desde izquierda (nueva tarjeta .left) */
 .card-3d.aparecer-izquierda {
   animation: animarDesdeIzquierda 0.8s ease forwards;
 }
-
 @keyframes animarDesdeDerecha {
   from {
     transform: scale(0.85) translateX(-300%) rotateY(-40deg);
@@ -308,7 +249,6 @@ border-bottom: none;
     opacity: 0.7;
   }
 }
-
 @keyframes animarDesdeIzquierda {
   from {
     transform: scale(0.85) translateX(300%) rotateY(40deg);
@@ -319,8 +259,6 @@ border-bottom: none;
     opacity: 0.7;
   }
 }
-
-/* Oculta y prepara para aparición suave */
 .card-3d.hidden {
   opacity: 0;
   transform: scale(0.7);
@@ -334,6 +272,13 @@ border-bottom: none;
 }
 .card-servicio .card-text {
   font-size: 0.95rem;
+}
+.card-title {
+  border-bottom: 3px solid coral;
+}
+.card-text {
+  text-align: start;
+  margin-top: 15px;
 }
 
 /* === BOTONES DE CARRUSEL === */
@@ -349,38 +294,42 @@ border-bottom: none;
   padding: 10px;
 }
 
-/* === CONTACTO === */
-
-
 /* === FOOTER === */
 footer {
   font-size: 0.9rem;
   color: #555;
 }
 
-/* === RESPONSIVE === */
-/* === MEJORAS RESPONSIVE === */
+/* === ANIMACIÓN DESDE LA IZQUIERDA === */
+@keyframes entrar-desde-izquierda {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animado-desde-izq-2 {
+  opacity: 0;
+  animation: entrar-desde-izquierda 3s ease-out forwards;
+}
 
-/* TABLET (768px - 992px) */
+/* === RESPONSIVE === */
 @media (max-width: 992px) {
-  .navbar-nav a{
+  .navbar-nav a {
     border-bottom: none !important;
-    }
-    
-  /* Navbar */
+  }
   .navbar-brand img {
     height: 60px;
   }
-
-  /* Hero */
   .hero h1 {
     font-size: 2.5rem;
   }
   .hero p {
     font-size: 1rem;
   }
-
-  /* Carrusel 3D */
   .carrusel-3d {
     min-height: 350px;
   }
@@ -394,8 +343,6 @@ footer {
     top: 45%;
     width: 8%;
   }
-
-  /* Contacto */
   #contacto h2 {
     font-size: 1.8rem;
   }
@@ -404,77 +351,68 @@ footer {
   }
 }
 
-
-
-/* === RESPONSIVE PARA CELULARES (600px o menos) === */
 @media (max-width: 600px) {
-
-  .card-3d, .card-3d.active{
+  .card-3d,
+  .card-3d.active {
     width: 150px;
     height: 185px;
     text-align: center;
   }
-  .card-body h4 p{
+  .card-body h4 p {
     text-align: center !important;
     width: 150px !important;
     margin: 0 !important;
     padding: 0 !important;
   }
-  .card-title h4{
+  .card-title h4 {
     border-bottom: 2px solid coral;
     width: 150px !important;
     font-size: 10px !important;
     text-align: center !important;
-     }
-     h4{
-      font-size: 12px;
-     }
-  .card-text{
+  }
+  h4 {
+    font-size: 12px;
+  }
+  .card-text {
     font-size: 10px;
   }
-  .navbar-nav a{
+  .navbar-nav a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
   }
 }
 
-@media (max-width: 400px){
-  body{
+@media (max-width: 400px) {
+  body {
     width: 100%;
   }
-  
- .card-3d, .card-3d.active{
-  width: 100px;
-  height: 180px;
- }
- .card-body h4 p{
-  text-align: center !important;
-  width: 100px !important;
-  height: 180px;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.card-title h4{
-  border-bottom: 2px solid coral;
-  width: 100px !important;
-  font-size: 10px !important;
-  text-align: center !important;
-   }
-   h4{
+  .card-3d,
+  .card-3d.active {
+    width: 100px;
+    height: 180px;
+  }
+  .card-body h4 p {
+    text-align: center !important;
+    width: 100px !important;
+    height: 180px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .card-title h4 {
+    border-bottom: 2px solid coral;
+    width: 100px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+  h4 {
     font-size: 10px;
-   }
-
- .card-text{
-  font-size: 7px;
+  }
+  .card-text {
+    font-size: 7px;
+  }
+  .navbar-nav a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
+  }
 }
-.navbar-nav a{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
-}
-}
-
-
-
-
 
 .card-3d.right-entrando {
   transform: scale(0.85) translateX(300%) rotateY(-40deg);
@@ -483,29 +421,4 @@ footer {
 .card-3d.left-entrando {
   transform: scale(0.85) translateX(-300%) rotateY(40deg);
   opacity: 0;
-}
-
-.card-title{
-  border-bottom: 3px solid coral;
-}
-.card-text{
-  text-align:start;
-  margin-top: 15px;
-}
-/* Animación desde la izquierda */
-@keyframes entrar-desde-izquierda {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Clase para aplicar la animación */
-.animado-desde-izq-2 {
-  opacity: 0;
-  animation: entrar-desde-izquierda 3s ease-out forwards;
 }
