@@ -129,16 +129,21 @@ body {
   border-radius: 5px;
   text-align: center;
 }
-.navbar-nav a {
-  border-bottom: 1px solid transparent;
+
+
+@media (min-width: 600px) and (max-width: 991px) {
+  .navbar-nav a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
 }
 
-@media (min-width: 600px) {
-  .navbar-nav {
-    background-color: white !important;
-  }
-  .navbar-nav a{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+@media (min-width: 992px) {
+  .navbar-nav a {
+    border: 1px solid transparent;
+    border-bottom: none; /* esto anula el anterior */
   }
 }
 
