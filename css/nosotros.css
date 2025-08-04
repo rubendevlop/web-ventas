@@ -1,3 +1,4 @@
+/* === VARIABLES === */
 :root {
   --brand-primary:   #FF7700;
   --brand-secondary: #CC6000;
@@ -5,9 +6,16 @@
   --body-color:      #333333;
   --card-bg:         #FFFFFF;
 }
-/* === Reset y body === */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* === RESET Y BODY === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--body-bg);
@@ -29,6 +37,36 @@ body {
 .navbar-light .navbar-nav .nav-link.active {
   color: var(--brand-secondary) !important;
 }
+.navbar-brand img {
+  height: 80px;
+}
+
+.navbar-nav {
+  background-color: white !important;
+  border-radius: 5px;
+  text-align: center;
+}
+.navbar-nav a {
+  border-bottom: none;
+}
+
+@media (min-width: 600px) and (max-width: 991px) {
+  .navbar-nav a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-nav a {
+    border: 1px solid transparent;
+    border-bottom: none; /* esto anula el anterior */
+  }
+}
+
+/* === SECCIONES === */
 .section-title {
   color: var(--brand-primary);
   font-size: 2rem;
@@ -39,7 +77,8 @@ body {
   color: var(--body-color);
   margin-bottom: 2rem;
 }
-/* Estilo para sección Quién soy */
+
+/* === QUIÉN SOY === */
 .intro-section {
   background-color: #f8f9fa;
   border-radius: .5rem;
@@ -51,7 +90,8 @@ body {
   transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
-/* Estilo para Valores */
+
+/* === VALORES === */
 .values-section .card {
   background-color: #fff;
   border: none;
@@ -68,92 +108,57 @@ body {
   font-weight: 600;
   margin-bottom: .5rem;
 }
+
+/* === SOBRE MÍ === */
+.sobre-mi .card {
+  box-shadow: 2px 15px 15px rgba(0,0,0,0.15);
+}
+
+/* === ANIMACIONES === */
 .reveal {
   opacity: 0;
   transform: translateY(100px);
   transition: opacity 2s ease-out, transform 2s ease-out;
   will-change: opacity, transform;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-footer {
-  color: var(--body-color) !important;
-}
-.navbar-brand img {
-  height: 60px;
-}
-.sobre-mi .card{
-  box-shadow: 2px 15px 15px rgba(0,0,0,0.15);
-}
-
-
-
-footer{
-  color: var(--body-color) !important;
-}
-
-
-.navbar-brand img{
-  height: 80px;
-}
-.navbar-nav {
-  background-color: white !important;
-  border-radius: 5px;
-  text-align: center;
-  
-}
-.navbar-nav a{
-border-bottom: 1px solid rgba(0, 0, 0, 0.411);
-}
-
-@media (min-width: 600px) {
-.navbar-nav {
-background-color: white !important;
-
-
-}
-.navbar-nav a{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
-}
-}
-
-/* Clase para aplicar la animación */
 .animado-desde-izq-2 {
   opacity: 0;
   animation: entrar-desde-izquierda 3s ease-out forwards;
 }
 
-.animado-desde-arriba {
+.animado-desde-arriba,
+.animado-desde-arriba-2,
+.animado-desde-arriba-3 {
   opacity: 0;
   transform: translateY(-100px);
   transition: transform 2s ease, opacity 1.2s ease;
 }
 
-.animado-desde-arriba.activo {
-  opacity: 1;
-  transform: translateY(0);
-}
-.animado-desde-arriba-2 {
-  opacity: 0;
-  transform: translateY(-120px);
-  transition: transform 2s ease, opacity 1.2s ease;
-}
-
-.animado-desde-arriba-2.activo {
-  opacity: 1;
-  transform: translateY(0);
-}
-.animado-desde-arriba-3 {
-  opacity: 0;
-  transform: translateY(-120px);
-  transition: transform 2s ease, opacity 1.2s ease;
-}
-
+.animado-desde-arriba.activo,
+.animado-desde-arriba-2.activo,
 .animado-desde-arriba-3.activo {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* === FOOTER === */
+footer {
+  color: var(--body-color) !important;
+}
+
+/* === KEYFRAMES === */
+@keyframes entrar-desde-izquierda {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

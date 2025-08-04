@@ -156,3 +156,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function ajustarBordesNavbar() {
+  const enlaces = document.querySelectorAll('.navbar-nav a');
+  const width = window.innerWidth;
+
+  enlaces.forEach(a => {
+    if (width >= 600 && width < 992) {
+      a.style.borderBottom = '1px solid rgba(0, 0, 0, 0.5)';
+      a.style.borderTop = 'none';
+      a.style.borderLeft = 'none';
+      a.style.borderRight = 'none';
+    } else if (width >= 992) {
+      a.style.border = '1px solid transparent';
+      a.style.borderBottom = 'none';
+    } else {
+      // Estilo para <600px
+      a.style.borderBottom = '1px solid rgba(0, 0, 0, 0.3)';
+      a.style.borderTop = 'none';
+      a.style.borderLeft = 'none';
+      a.style.borderRight = 'none';
+    }
+  });
+}
+
+// Ejecutar al cargar y al redimensionar
+window.addEventListener('DOMContentLoaded', ajustarBordesNavbar);
+window.addEventListener('resize', ajustarBordesNavbar);
