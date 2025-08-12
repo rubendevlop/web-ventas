@@ -122,7 +122,8 @@ body {
 
 /* === NAVBAR LOGO === */
 .navbar-brand img {
-  height: 80px;
+  height: 180px;
+  width: 300px;
 }
 .navbar-nav {
   background-color: white !important;

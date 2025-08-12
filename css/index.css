@@ -55,7 +55,8 @@ header.navbar {
   color: var(--brand-secondary) !important;
 }
 .navbar-brand img {
-  height: 80px;
+  height: 180px;
+  width: 300px;
 }
 
 /* === BOTÓN HAMBURGUESA === */
