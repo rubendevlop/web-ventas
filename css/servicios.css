@@ -212,18 +212,18 @@ body {
 }
 
 
-@media (min-width:400px){
+@media (max-width: 400px){
   .navbar-brand img {
     height: 100px;
     width: 150px;
       }
 }
-@media (min-width:600px){
+@media (max-width: 600px){
   .navbar-brand img {
     height: 100px;
       }
 }
-@media (min-width:700px){
+@media (max-width:700px){
   .navbar-brand img {
     height: 100px;
       }
