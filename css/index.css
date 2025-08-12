@@ -380,12 +380,20 @@ footer {
   .navbar-nav a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
   }
+
+  .navbar-brand img {
+height: 100px;
+  }
 }
 
 @media (max-width: 400px) {
   body {
     width: 100%;
   }
+  .navbar-brand img {
+    height: 100px;
+    width: 150px;
+      }
   .card-3d,
   .card-3d.active {
     width: 100px;

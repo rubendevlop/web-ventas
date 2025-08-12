@@ -50,7 +50,12 @@ body {
 .navbar-nav a {
   border-bottom: none;
 }
-
+@media (min-width:400px){
+  .navbar-brand img {
+    height: 100px;
+    width: 150px;
+      }
+}
 @media (min-width: 600px) and (max-width: 991px) {
   .navbar-nav a {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
@@ -58,6 +63,9 @@ body {
     border-left: none;
     border-right: none;
   }
+  .navbar-brand img {
+    height: 100px;
+      }
 }
 
 @media (min-width: 992px) {
